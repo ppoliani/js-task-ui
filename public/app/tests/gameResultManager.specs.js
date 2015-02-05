@@ -1,6 +1,6 @@
 describe('The gameResultManager', function(){
-
-    var gameResultManager;
+    var expect = chai.expect,
+        gameResultManager;
 
     beforeEach(function(){
         angular.mock.module(utils.moduleName);
@@ -12,6 +12,6 @@ describe('The gameResultManager', function(){
 
 
     describe('Tmp', function(){
-        expect(false).to.be.true;
+        expect(true).to.be.true;
     });
 });

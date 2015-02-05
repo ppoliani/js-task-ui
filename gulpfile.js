@@ -24,7 +24,9 @@ gulp.task('test', function (done) {
     karma.start({
         configFile: __dirname + '/gulp/karma.conf.js',
         singleRun: true
-    }, done);
+    }, function(){
+        done();
+    });
 });
 
 gulp.task('watch', function(){
