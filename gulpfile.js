@@ -19,6 +19,10 @@ gulp.task('dev:watch', function(){
 });
 
 
+gulp.task('test', function(){
+    gulp.start('test');
+});
+
 gulp.task('watch', function(){
     gulp.watch(config.appDir + '/**/*.js', ['dev']);
 });
