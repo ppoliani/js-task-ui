@@ -21,18 +21,35 @@
 
         // region Inner Methods
 
+        /**
+         * Store the given teams to the local collection
+         * @param teams
+         */
         function storeTeams(teams){
             _teams = teams;
         }
 
+        /**
+         * Returns all the teams
+         * @returns {*}
+         */
         function getAllTeams(){
             return _teams;
         }
 
+        /**
+         * Returns the team with the given id
+         * @param teamId
+         * @returns {*}
+         */
         function getTeamById(teamId){
             return _teams[teamId];
         }
 
+        /**
+         * Calculates the result of the given match and update the properties of the teams in question
+         * @param game
+         */
         function findGameResult(game){
             var homeTeam = _teams[game.homeTeamId],
                 awayTeam = _teams[game.awayTeamId];
@@ -71,6 +88,10 @@
             }
         }
 
+        /**
+         * Returns all the games that have been played
+         * @returns {Array}
+         */
         function getAllGames(){
             return _games;
         }

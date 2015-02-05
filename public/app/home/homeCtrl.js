@@ -28,6 +28,7 @@
 
         function on_msg(game){
             gameResultsManager.findGameResult(new Game(game));
+            this.teams = gameResultsManager.getAllTeams();
         }
 
         function on_error(error){

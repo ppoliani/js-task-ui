@@ -13,6 +13,11 @@
 
         // region Inner Methods
 
+        /**
+         * Initializes the web socket client
+         * @param on_msg
+         * @param on_error
+         */
         function init(on_msg, on_error){
             var webSocketClient = new WebSocketClient();
 
