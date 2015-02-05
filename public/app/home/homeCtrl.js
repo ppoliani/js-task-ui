@@ -26,11 +26,19 @@
 
         // region Events
 
+        /**
+         * Invoked when the webSocker has got a new message
+         * @param game
+         */
         function on_msg(game){
             gameResultsManager.findGameResult(new Game(game));
             this.teams = gameResultsManager.getAllTeams();
         }
 
+        /**
+         * Invoked when the webSocket raises an error
+         * @param error
+         */
         function on_error(error){
             console.error(error);
         }

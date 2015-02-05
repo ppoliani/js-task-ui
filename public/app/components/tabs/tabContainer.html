@@ -1,0 +1,8 @@
+<section class="tab-container">
+    <ul>
+        <li class="tab-header" ng-repeat="tab in vm.tabs" ng-click="vm.selectTab($index)" ng-class="{ selected: $index === vm.selectedIndex }">
+            {{ ::tab }}
+        </li>
+    </ul>
+    <div class="panel tab-body" ng-transclude></div>
+</section>

@@ -1,0 +1,21 @@
+.tab-container {
+  .tab-header {
+    display: inline-block;
+    padding: 1rem;
+    color: #FFF;
+    background-color: $secondary-color;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    font-family: $header-font-family;
+  }
+
+  .tab-body {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    border: 1px solid $third-color;
+  }
+
+  .selected {
+    background-color: $main-color;
+  }
+}

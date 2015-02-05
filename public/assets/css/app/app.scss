@@ -1,3 +1,5 @@
-.c {
-  width: 10px;
-}
+@import
+  '_base/all',
+  '_settings/all',
+  '_objects/all',
+  '../../../app/components/tabs/tabs';
