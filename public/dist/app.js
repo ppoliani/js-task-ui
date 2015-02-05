@@ -292,7 +292,8 @@
 	 */
 	module.exports = [
 	    __webpack_require__(18),
-	    __webpack_require__(19)
+	    __webpack_require__(19),
+	    __webpack_require__(20)
 	];
 
 /***/ },
@@ -309,7 +310,7 @@
 	
 	        // region Setup
 	
-	        gamesLoader.init(on_msg, on_error);
+	        gamesLoader.init(on_msg.bind(this), on_error);
 	
 	        // endregion
 	
@@ -1048,6 +1049,43 @@
 	    // endregion
 	    
 	 })();
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Generic Stats table
+	 */
+	(function(){
+	    'use strict';
+	
+	    function statsTableDirective(){
+	
+	        function statsTableCtrl(){
+	
+	        }
+	
+	        return {
+	            restrict: 'AE',
+	            template: '/public/app/components/statsTable/statsTable.html',
+	            scope: {},
+	            controller: [statsTableCtrl],
+	            controllerAs: 'vm',
+	            bindToController: true
+	        };
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'statsTable',
+	        directive: [statsTableDirective]
+	    };
+	
+	    // endregion
+	
+	})();
 
 /***/ }
 /******/ ])

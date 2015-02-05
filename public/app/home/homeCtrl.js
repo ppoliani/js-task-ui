@@ -8,7 +8,7 @@
 
         // region Setup
 
-        gamesLoader.init(on_msg, on_error);
+        gamesLoader.init(on_msg.bind(this), on_error);
 
         // endregion
 
