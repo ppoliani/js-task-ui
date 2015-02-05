@@ -20,7 +20,6 @@ describe('The gameResultManager', function(){
         gameResultsManager.storeTeams(teams);
     }));
 
-
     describe('The findGameResult method', function(){
         it('It should correctly set the home/away goals', function(){
             // Arrange
@@ -182,6 +181,24 @@ describe('The gameResultManager', function(){
             // Assert
             expect(gameResultsManager.getTeamById(1).numOfHomeDraws).to.equal(1);
             expect(gameResultsManager.getTeamById(2).numOfAwayDraws).to.equal(1);
+        });
+
+        it('It should update the form of both teams', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 3
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).form[0].value).to.equal('D');
+            expect(gameResultsManager.getTeamById(2).form[0].value).to.equal('D');
         });
     });
 });

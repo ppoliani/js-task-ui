@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function gameResultsManagerService(){
+    function gameResultsManagerService(GameResultEnum){
         // region Consts
 
         var WIN_POINTS = 3,
@@ -37,10 +37,16 @@
             if (game.homeGoals > game.awayGoals){
                 homeTeam.totalHomePoints += WIN_POINTS;
                 homeTeam.numOfHomeWins += 1;
+
+                homeTeam.updateForm(GameResultEnum.Win);
+                awayTeam.updateForm(GameResultEnum.Loss);
             }
             else if(game.awayGoals > game.homeGoals){
                 awayTeam.totalAwayPoints += WIN_POINTS;
                 awayTeam.numOfAwayWins += 1;
+
+                homeTeam.updateForm(GameResultEnum.Loss);
+                awayTeam.updateForm(GameResultEnum.Win);
             }
             else {
                 homeTeam.totalHomePoints += DRAW_POINTS;
@@ -48,6 +54,9 @@
 
                 awayTeam.totalAwayPoints += DRAW_POINTS;
                 awayTeam.numOfAwayDraws += 1;
+
+                homeTeam.updateForm(GameResultEnum.Draw);
+                awayTeam.updateForm(GameResultEnum.Draw);
             }
         }
 
@@ -73,7 +82,7 @@
     module.exports = {
         name: 'gameResultsManagerService',
         type: 'factory',
-        service: [gameResultsManagerService]
+        service: ['GameResultEnum', gameResultsManagerService]
     };
 
     // endregion

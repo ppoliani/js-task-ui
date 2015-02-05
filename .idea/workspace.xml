@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa69137c-e3c0-4129-9c49-8e4bd2052bfd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/tests/team.specs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" afterPath="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/services/gameResultsManager.js" afterPath="$PROJECT_DIR$/public/app/services/gameResultsManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/models/team.js" afterPath="$PROJECT_DIR$/public/app/models/team.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/core/values.js" afterPath="$PROJECT_DIR$/public/app/core/values.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="js-task-ui-1.0.0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,25 +36,27 @@
       <file leaf-file-name="gameResultManager.specs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1326">
-              <caret line="175" column="28" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1071">
+              <caret line="185" column="51" selection-start-line="185" selection-start-column="51" selection-end-line="185" selection-end-column="51" />
               <folding>
-                <element signature="e#647#1310#0" expanded="false" />
-                <element signature="e#1421#2628#0" expanded="false" />
-                <element signature="e#2719#3210#0" expanded="false" />
-                <element signature="e#3301#3792#0" expanded="false" />
-                <element signature="e#3882#4373#0" expanded="false" />
-                <element signature="e#4467#4954#0" expanded="false" />
+                <element signature="e#646#1309#0" expanded="false" />
+                <element signature="e#1420#2627#0" expanded="false" />
+                <element signature="e#2718#3209#0" expanded="false" />
+                <element signature="e#3300#3791#0" expanded="false" />
+                <element signature="e#3881#4372#0" expanded="false" />
+                <element signature="e#4466#4953#0" expanded="false" />
+                <element signature="e#5047#5534#0" expanded="false" />
+                <element signature="e#5638#6127#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameResultsManager.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gameResultsManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70223755" vertical-offset="425" max-vertical-offset="1462">
-              <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
+              <caret line="6" column="53" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -59,14 +65,25 @@
       <file leaf-file-name="team.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/models/team.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1683">
-              <caret line="27" column="31" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="1751">
+              <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="94" />
               <folding>
-                <element signature="e#1264#1418#0" expanded="false" />
-                <element signature="e#1444#1594#0" expanded="false" />
-                <element signature="e#1621#1773#0" expanded="false" />
-                <element signature="e#1801#1955#0" expanded="false" />
+                <element signature="e#1219#1309#0" expanded="false" />
+                <element signature="e#1511#1665#0" expanded="false" />
+                <element signature="e#1691#1841#0" expanded="false" />
+                <element signature="e#1868#2020#0" expanded="false" />
+                <element signature="e#2048#2202#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="team.specs.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/tests/team.specs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.245283" vertical-offset="218" max-vertical-offset="850">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,17 +169,18 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/gulp/build_tasks/test.js" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/public/app/models/team.js" />
         <option value="$PROJECT_DIR$/public/app/services/standingZonesManager.js" />
         <option value="$PROJECT_DIR$/public/app/core/services.js" />
         <option value="$PROJECT_DIR$/public/app/config/routes.js" />
         <option value="$PROJECT_DIR$/gulp/karma.conf.js" />
         <option value="$PROJECT_DIR$/public/app/tests/utils.js" />
         <option value="$PROJECT_DIR$/public/app/models/gameResultEnum.js" />
-        <option value="$PROJECT_DIR$/public/app/core/values.js" />
         <option value="$PROJECT_DIR$/public/app/core/app.js" />
-        <option value="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" />
         <option value="$PROJECT_DIR$/public/app/services/gameResultsManager.js" />
+        <option value="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" />
+        <option value="$PROJECT_DIR$/public/app/core/values.js" />
+        <option value="$PROJECT_DIR$/public/app/models/team.js" />
+        <option value="$PROJECT_DIR$/public/app/tests/team.specs.js" />
       </list>
     </option>
   </component>
@@ -430,10 +448,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3448276" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3448276" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -470,7 +488,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -827,46 +845,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="1071">
+          <caret line="185" column="51" selection-start-line="185" selection-start-column="51" selection-end-line="185" selection-end-column="51" />
+          <folding>
+            <element signature="e#646#1309#0" expanded="false" />
+            <element signature="e#1420#2627#0" expanded="false" />
+            <element signature="e#2718#3209#0" expanded="false" />
+            <element signature="e#3300#3791#0" expanded="false" />
+            <element signature="e#3881#4372#0" expanded="false" />
+            <element signature="e#4466#4953#0" expanded="false" />
+            <element signature="e#5047#5534#0" expanded="false" />
+            <element signature="e#5638#6127#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/core/values.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11703958" vertical-offset="0" max-vertical-offset="581">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.52667814" vertical-offset="0" max-vertical-offset="581">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/models/team.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1683">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="1751">
+          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="94" />
           <folding>
-            <element signature="e#1264#1418#0" expanded="false" />
-            <element signature="e#1444#1594#0" expanded="false" />
-            <element signature="e#1621#1773#0" expanded="false" />
-            <element signature="e#1801#1955#0" expanded="false" />
+            <element signature="e#1219#1309#0" expanded="false" />
+            <element signature="e#1511#1665#0" expanded="false" />
+            <element signature="e#1691#1841#0" expanded="false" />
+            <element signature="e#1868#2020#0" expanded="false" />
+            <element signature="e#2048#2202#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js">
+    <entry file="file://$PROJECT_DIR$/public/app/tests/team.specs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="694" max-vertical-offset="1326">
-          <caret line="175" column="28" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
-          <folding>
-            <element signature="e#647#1310#0" expanded="false" />
-            <element signature="e#1421#2628#0" expanded="false" />
-            <element signature="e#2719#3210#0" expanded="false" />
-            <element signature="e#3301#3792#0" expanded="false" />
-            <element signature="e#3882#4373#0" expanded="false" />
-            <element signature="e#4467#4954#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70223755" vertical-offset="425" max-vertical-offset="1462">
-          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+        <state vertical-scroll-proportion="1.245283" vertical-offset="218" max-vertical-offset="850">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding />
         </state>
       </provider>

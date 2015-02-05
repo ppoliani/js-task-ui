@@ -39,10 +39,18 @@
 
         Team.prototype = (function(){
 
+            function updateForm(gameResult){
+                if(!gameResult) throw new Error('game result is required to set the teams form');
+
+                this.form.unshift(gameResult);
+            }
+
             // region Public Api
 
             var publicAPI = {
-                constructor: Team
+                constructor: Team,
+
+                updateForm: updateForm
             };
 
             // endregion

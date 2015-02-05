@@ -16,7 +16,7 @@ module.exports = [{
         },
 
         Loss: {
-            values: 'L',
+            value: 'L',
             label: 'Loss'
         }
     }
