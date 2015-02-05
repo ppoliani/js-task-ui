@@ -14,7 +14,8 @@
 
         // region Inner Fields
 
-        var _teams;
+        var _teams,
+            _games = [];
 
         // endregion
 
@@ -24,9 +25,19 @@
             _teams = teams;
         }
 
+        function getAllTeams(){
+            return _teams;
+        }
+
+        function getTeamById(teamId){
+            return _teams[teamId];
+        }
+
         function findGameResult(game){
             var homeTeam = _teams[game.homeTeamId],
                 awayTeam = _teams[game.awayTeamId];
+
+            _games.push(game);
 
             homeTeam.goalsScoredHome += game.homeGoals;
             homeTeam.goalsConcededHome += game.awayGoals;
@@ -60,8 +71,8 @@
             }
         }
 
-        function getTeamById(teamId){
-            return _teams[teamId];
+        function getAllGames(){
+            return _games;
         }
 
         // endregion
@@ -70,8 +81,10 @@
 
         return {
             storeTeams: storeTeams,
+            getAllTeams: getAllTeams,
+            getTeamById: getTeamById,
             findGameResult: findGameResult,
-            getTeamById: getTeamById
+            getAllGames: getAllGames
         };
 
         // endregion

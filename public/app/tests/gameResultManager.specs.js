@@ -21,6 +21,22 @@ describe('The gameResultManager', function(){
     }));
 
     describe('The findGameResult method', function(){
+        it('Should store the game to the local data collection', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 1,
+                awayGoals: 2
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            expect(gameResultsManager.getAllGames()[0]).to.equal(game);
+        });
+
         it('It should correctly set the home/away goals', function(){
             // Arrange
             var game = {

@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function standingZonesManagerService(){
+    function standingZonesManager(){
 
         // region Consts
 
@@ -52,7 +52,7 @@
     module.exports = {
         name: 'standingZonesManager',
         type: 'factory',
-        service: [standingZonesManagerService]
+        service: [standingZonesManager]
     };
 
     // endregion

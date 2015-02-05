@@ -20,16 +20,16 @@ function configure(app) {
                 title: 'Premier League Table',
 
                 resolve: {
-                    teamsResolved: ['API_ENDPOINT', 'dataService', 'gameResultManager', 'Team',  function(API_ENDPOINT, dataService, gameResultManager, Team){
+                    teamsResolved: ['API_ENDPOINT', 'dataService', 'gameResultsManager', 'Team',  function(API_ENDPOINT, dataService, gameResultsManager, Team){
                         return dataService.get(API_ENDPOINT + 'teams')
                             .then(function(result){
-                                gameResultManager.storeTeams(result.reduce(function(dic, team){
+                                gameResultsManager.storeTeams(result.reduce(function(dic, team){
                                     dic[team.id] = new Team(team.id, team.name);
 
                                     return dic;
                                 }, {}));
                             })
-                            .error(function(msg){
+                            .catch(function(msg){
                                 console.error(msg);
                             });
                     }]

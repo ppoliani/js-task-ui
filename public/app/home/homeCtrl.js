@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function HomeCtrl(gamesLoader, Team){
+    function HomeCtrl(Game, gamesLoader, gameResultsManager, standingZonesManager){
 
         // region Setup
 
@@ -19,12 +19,15 @@
 
         // region Viewmodel
 
+        this.teams = gameResultsManager.getAllTeams();
+        this.zonesManager = standingZonesManager;
+
         // endregion
 
         // region Events
 
-        function on_msg(msg){
-            console.info(msg);
+        function on_msg(game){
+            gameResultsManager.findGameResult(new Game(game));
         }
 
         function on_error(error){
@@ -38,7 +41,13 @@
 
     module.exports = {
         name: 'homeCtrl',
-        ctrl: ['gamesLoaderService', HomeCtrl]
+        ctrl: [
+            'Game',
+            'gamesLoaderService',
+            'gameResultsManager',
+            'standingZonesManager',
+            HomeCtrl
+        ]
     };
     
     // endregion
