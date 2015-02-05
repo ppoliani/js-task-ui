@@ -11,6 +11,7 @@
         services = require('./services'),
         models = require('./models'),
         constants = require('./constants'),
+        values = require('./values'),
         directives = require('./directives');
 
     // endregion
@@ -43,7 +44,7 @@
 
     // region Register All Services
 
-    services.concat(constants).forEach(function(service){
+    services.concat(constants).concat(values).forEach(function(service){
         servicesModule[service.type](service.name, service.service);
     });
 

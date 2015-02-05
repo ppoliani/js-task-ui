@@ -23,7 +23,11 @@ function configure(app) {
                     teamsResolved: ['API_ENDPOINT', 'dataService', 'gameResultManager', 'Team',  function(API_ENDPOINT, dataService, gameResultManager, Team){
                         return dataService.get(API_ENDPOINT + 'teams')
                             .then(function(result){
-                                gameResultManager.storeTeams(result.map(function(team){ return new Team(team.id, team.name) }));
+                                gameResultManager.storeTeams(result.reduce(function(dic, team){
+                                    dic[team.id] = new Team(team.id, team.name);
+
+                                    return dic;
+                                }, {}));
                             })
                             .error(function(msg){
                                 console.error(msg);
