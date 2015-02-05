@@ -18,6 +18,19 @@
 
             this.id = id;
             this.name = name;
+
+            this.totalHomePoints = 0;
+            this.totalAwayPoints = 0;
+            this.numOfHomeWins = 0;
+            this.numOfAwayWins = 0;
+            this.numOfHomeDraws = 0;
+            this.numOfAwayDraws = 0;
+            this.numOfHomeLosses = 0;
+            this.numOfAwayLosses = 0;
+            this.goalsScoredHome = 0;
+            this.goalsScoredAway = 0;
+            this.goalsConcededHome = 0;
+            this.goalsConcededAway = 0;
         }
 
         Team.prototype = (function(){
@@ -33,6 +46,48 @@
             return publicAPI;
 
         })();
+
+        // endregion
+
+        // region Properties
+
+        Object.defineProperties(Team.prototype, {
+            totalPoints: {
+                get: function get_totalPoints(){
+                    return this.totalHomePoints + this.totalAwayPoints;
+                }
+            },
+
+            numOfWins: {
+                get: function get_totalPoints(){
+                    return this.numOfHomeWins + this.numOfAwayWins;
+                }
+            },
+
+            numOfDraws: {
+                get: function get_totalPoints(){
+                    return this.numOfHomeDraws + this.numOfAwayDraws;
+                }
+            },
+
+            numOfLosses: {
+                get: function get_totalPoints(){
+                    return this.numOfHomeLosses + this.numOfAwayLosses;
+                }
+            },
+
+            totalGoalsScored: {
+                get: function get_totalPoints(){
+                    return this.goalsScoredHome + this.goalsScoredAway;
+                }
+            },
+
+            totalGoalsConceded: {
+                get: function get_totalPoints(){
+                    return this.goalsConcededHome + this.goalsConcededAway;
+                }
+            }
+        });
 
         // endregion
 
