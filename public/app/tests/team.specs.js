@@ -6,7 +6,7 @@ describe('The team module', function(){
         GameResultEnum;
 
     beforeEach(function(){
-        angular.mock.module("app.core");
+        angular.mock.module(utils.moduleName);
     });
 
     beforeEach(inject(function(_GameResultEnum_, Team){

@@ -6,7 +6,7 @@ describe('The gameResultManager', function(){
         teams;
 
     beforeEach(function(){
-        angular.mock.module("app.core");
+        angular.mock.module(utils.moduleName);
     });
 
     beforeEach(inject(function(gameResultsManagerService, Team){
