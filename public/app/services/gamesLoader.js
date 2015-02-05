@@ -4,7 +4,7 @@
 (function(){
     'use strict';
     
-    function gamesLoaderService(WebSocketClientService){
+    function gamesLoaderService(WebSocketClient){
         // region Consts
 
         var WS_URL = '127.0.0.1:8080/games';
@@ -14,9 +14,9 @@
         // region Inner Methods
 
         function init(on_msg, on_error){
-            var webSocketClientService = new WebSocketClientService();
+            var webSocketClient = new WebSocketClient();
 
-            webSocketClientService.init(WS_URL, on_msg, on_error);
+            webSocketClient.init(WS_URL, on_msg, on_error);
         }
 
         // endregion
@@ -35,7 +35,7 @@
     module.exports = {
         name: 'gamesLoaderService',
         type: 'factory',
-        service: ['WebSocketClientService', gamesLoaderService]
+        service: ['WebSocketClient', gamesLoaderService]
     };
     
     // endregion

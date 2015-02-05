@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function WebSocketClientService(){
+    function WebSocketClient(){
 
         // region Inner Methods
 
@@ -68,9 +68,9 @@
     // region CommonJS
 
     module.exports = {
-        name: 'WebSocketClientService',
+        name: 'WebSocketClient',
         type: 'factory',
-        service: [WebSocketClientService]
+        service: [WebSocketClient]
     };
 
     // endregion

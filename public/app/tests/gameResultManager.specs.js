@@ -9,8 +9,8 @@ describe('The gameResultManager', function(){
         angular.mock.module(utils.moduleName);
     });
 
-    beforeEach(inject(function(gameResultsManagerService, Team){
-        gameResultsManager = gameResultsManagerService;
+    beforeEach(inject(function(_gameResultsManager_, Team){
+        gameResultsManager = _gameResultsManager_;
 
         teams = {
             "1": new Team(1, "Blackburn"),

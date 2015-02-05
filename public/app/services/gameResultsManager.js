@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function gameResultsManagerService(GameResultEnum){
+    function gameResultsManager(GameResultEnum){
         // region Consts
 
         var WIN_POINTS = 3,
@@ -80,9 +80,9 @@
     // region CommonJS
 
     module.exports = {
-        name: 'gameResultsManagerService',
+        name: 'gameResultsManager',
         type: 'factory',
-        service: ['GameResultEnum', gameResultsManagerService]
+        service: ['GameResultEnum', gameResultsManager]
     };
 
     // endregion
