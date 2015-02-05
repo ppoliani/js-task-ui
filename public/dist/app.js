@@ -1068,8 +1068,10 @@
 	
 	        return {
 	            restrict: 'AE',
-	            template: '/public/app/components/statsTable/statsTable.html',
-	            scope: {},
+	            templateUrl: '/public/app/components/statsTable/statsTable.html',
+	            scope: {
+	                teams: '='
+	            },
 	            controller: [statsTableCtrl],
 	            controllerAs: 'vm',
 	            bindToController: true

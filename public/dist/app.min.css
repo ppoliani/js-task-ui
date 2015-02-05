@@ -10,12 +10,12 @@ label{font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif}
 .grid__table{margin:0;padding:0;width:100%;list-style:none;display:table;border-collapse:separate}
 .grid__row{width:100%;display:table}
 .grid__data{position:relative;padding:.75rem;text-align:center}
-.grid__cell,.grid__header{vertical-align:middle}
-.grid__cell,.grid__cell--simple,.grid__header{display:table-cell}
+.grid__cell,.grid__header{display:table-row;vertical-align:middle}
 .grid__header{background-color:#F60;color:#FFF;font-family:'Francois One',sans-serif}
 .grid__cell .icon{display:inline-block;vertical-align:top}
 .grid__table-caption{display:table-caption;caption-side:bottom}
 @media only screen and (min-width:40.063em){.grid__row{display:table-row}
+.grid__cell,.grid__header{display:table-cell;padding:.2rem;vertical-align:middle}
 .grid__cell--border,.grid__header--border{border-right:1px solid #b2b2b2}
 .grid__cell:last-child,.grid__header:last-child{border:none}}
 .tab-container .tab-header{display:inline-block;padding:1rem;color:#FFF;background-color:#3C3C3C;margin-right:.5rem;cursor:pointer;font-family:'Francois One',sans-serif}

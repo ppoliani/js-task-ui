@@ -1,0 +1,72 @@
+<section class="grid__wrapper">
+    <ul class="grid__table">
+        <!-- Header  -->
+        <li class="grid__row">
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    #
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    Team
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    MP
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    W
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    D
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    L
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    G
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    Pts
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+            <div class="grid__header">
+                <div class="grid__data grid__data--sortable">
+                    Form
+                    <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
+                </div>
+            </div>
+            </div>
+        </li>
+
+        <li class="grid__row" ng-repeat="team in vm.teams track by team.id">
+
+        </li>
+    </ul>
+</section>

@@ -1,3 +1,5 @@
+$base--spacing: 0.2rem;
+
 .grid__table {
   margin: 0;
   padding: 0;
@@ -20,15 +22,9 @@
 }
 
 .grid__header,
-.grid__cell {
+.grid__cell{
   display: table-row;
   vertical-align: middle;
-}
-
-.grid__header,
-.grid__cell--simple,
-.grid__cell{
-  display: table-cell;
 }
 
 .grid__header {
@@ -52,6 +48,13 @@
 @media #{$medium} {
   .grid__row {
     display: table-row;;
+  }
+
+  .grid__header,
+  .grid__cell {
+    display: table-cell;
+    padding: $base--spacing;
+    vertical-align: middle;
   }
 
   .grid__header--border,
