@@ -50,7 +50,7 @@
 
         return {
             restrict: 'AE',
-            templateUrl: '/js/app/components/tabs/tabContainer.html',
+            templateUrl: '/public/app/components/tabs/tabContainer.html',
             transclude: true,
             scope: { },
             controller: [tabContainerCtrl],

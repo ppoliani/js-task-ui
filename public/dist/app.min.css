@@ -1,0 +1,23 @@
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+h1,h2,h3,h4,h5,h6{font-weight:300}
+label{font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif}
+.grid__table{margin:0;padding:0;width:100%;list-style:none;display:table;border-collapse:separate}
+.grid__row{width:100%;display:table}
+.grid__data{position:relative;padding:.75rem;text-align:center}
+.grid__cell,.grid__header{vertical-align:middle}
+.grid__cell,.grid__cell--simple,.grid__header{display:table-cell}
+.grid__header{background-color:#F60;color:#FFF;font-family:'Francois One',sans-serif}
+.grid__cell .icon{display:inline-block;vertical-align:top}
+.grid__table-caption{display:table-caption;caption-side:bottom}
+@media only screen and (min-width:40.063em){.grid__row{display:table-row}
+.grid__cell--border,.grid__header--border{border-right:1px solid #b2b2b2}
+.grid__cell:last-child,.grid__header:last-child{border:none}}
+.tab-container .tab-header{display:inline-block;padding:1rem;color:#FFF;background-color:#3C3C3C;margin-right:.5rem;cursor:pointer;font-family:'Francois One',sans-serif}
+.tab-container .tab-body{margin-top:.5rem;padding:1rem;border:1px solid #dbdbdb}
+.tab-container .selected{background-color:#F60}
