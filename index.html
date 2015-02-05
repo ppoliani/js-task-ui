@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html ng-app="app.core">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="public/dist/app.min.css" />
+
+        <base href="/">
+    </head>
+
+    <body>
+        <section class="global-wrapper">
+
+            <!-- Header -->
+            <ng-include src="'public/app/partial/_header.html'"></ng-include>
+
+            <!-- Sidebar -->
+            <ng-include src="'public/app/partial/_sidebar.html'"></ng-include>
+
+            <!-- Main content -->
+            <section class="main-content" ng-view></section>
+
+        </section>
+
+        <script src="public/dist/vendor.min.js"></script>
+        <script src="public/dist/app.js"></script>
+    </body>
+</html>
