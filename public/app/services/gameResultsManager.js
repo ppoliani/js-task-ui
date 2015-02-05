@@ -36,13 +36,18 @@
 
             if (game.homeGoals > game.awayGoals){
                 homeTeam.totalHomePoints += WIN_POINTS;
+                homeTeam.numOfHomeWins += 1;
             }
             else if(game.awayGoals > game.homeGoals){
                 awayTeam.totalAwayPoints += WIN_POINTS;
+                awayTeam.numOfAwayWins += 1;
             }
             else {
                 homeTeam.totalHomePoints += DRAW_POINTS;
+                homeTeam.numOfHomeDraws += 1;
+
                 awayTeam.totalAwayPoints += DRAW_POINTS;
+                awayTeam.numOfAwayDraws += 1;
             }
         }
 

@@ -129,5 +129,59 @@ describe('The gameResultManager', function(){
             expect(gameResultsManager.getTeamById(1).totalHomePoints).to.equal(1);
             expect(gameResultsManager.getTeamById(2).totalAwayPoints).to.equal(1);
         });
+
+        it('It should increment the num of home wins if the home team has won', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 2
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).numOfHomeWins).to.equal(1);
+            expect(gameResultsManager.getTeamById(2).numOfHomeWins).to.equal(0);
+        });
+
+        it('It should increment the num of away wins if the away team has won', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 5
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).numOfHomeWins).to.equal(0);
+            expect(gameResultsManager.getTeamById(2).numOfAwayWins).to.equal(1);
+        });
+
+        it('It should increment the num of home and away draws if the away team has won', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 3
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).numOfHomeDraws).to.equal(1);
+            expect(gameResultsManager.getTeamById(2).numOfAwayDraws).to.equal(1);
+        });
     });
 });
