@@ -1,6 +1,7 @@
 var gulp    = require('gulp'),
     glob    = require('glob'),
-    config  = require('./gulp/config');
+    config  = require('./gulp/config'),
+    karma   = require('karma').server;
 
 var BUILD_TASKS_PATH = './gulp/build_tasks/';
 
@@ -19,8 +20,11 @@ gulp.task('dev:watch', function(){
 });
 
 
-gulp.task('test', function(){
-    gulp.start('test');
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/gulp/karma.conf.js',
+        singleRun: true
+    }, done);
 });
 
 gulp.task('watch', function(){

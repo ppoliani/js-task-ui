@@ -20,10 +20,10 @@ function configure(app) {
                 title: 'Premier League Table',
 
                 resolve: {
-                    teamsResolved: ['API_ENDPOINT', 'dataService', 'gameResultsManager', 'Team',  function(API_ENDPOINT, dataService, gameResultsManager, Team){
+                    teamsResolved: ['API_ENDPOINT', 'dataService', 'gameResultManager', 'Team',  function(API_ENDPOINT, dataService, gameResultManager, Team){
                         return dataService.get(API_ENDPOINT + 'teams')
                             .then(function(result){
-                                gameResultsManager.storeTeams(result.map(function(team){ return new Team(team.id, team.name) }));
+                                gameResultManager.storeTeams(result.map(function(team){ return new Team(team.id, team.name) }));
                             })
                             .error(function(msg){
                                 console.error(msg);

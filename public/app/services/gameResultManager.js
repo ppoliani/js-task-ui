@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function gameResultsManagerService(){
+    function gameResultManagerService(){
         // region Inner Fields
 
         var _teams;
@@ -36,9 +36,9 @@
     // region CommonJS
 
     module.exports = {
-        name: 'gameResultsManagerService',
+        name: 'gameResultManagerService',
         type: 'factory',
-        service: [gameResultsManagerService]
+        service: [gameResultManagerService]
     };
 
     // endregion
