@@ -6,7 +6,9 @@
 
     function Team(){
 
-        // region Inner Methods
+        // region Consts
+
+        var NUM_OF_LAST_GAMES = 5;
 
         // endregion
 
@@ -31,6 +33,8 @@
             this.goalsScoredAway = 0;
             this.goalsConcededHome = 0;
             this.goalsConcededAway = 0;
+
+            this.form = [];
         }
 
         Team.prototype = (function(){
