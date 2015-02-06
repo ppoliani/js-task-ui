@@ -261,5 +261,28 @@ describe('The gameResultManager', function(){
             expect(awayTeamPositions[0].name).to.equal('Wolves');
             expect(awayTeamPositions[1].name).to.equal('Blackburn');
         });
+
+        it('It should call the on_gameWeekUpdate hooks when all game week games have been processed', function(){
+            // Arrange
+            var games = [];
+
+            for(var i = 0; i < 10 ; i++){
+                games.push({
+                    date: "13/08/11",
+                    homeTeamId: i + 1,
+                    awayTeamId: i + 2,
+                    homeGoals: i,
+                    awayGoals: i + 2
+                });
+            }
+
+            gameResultsManager.onGameWeekUpdate(function(){
+                // Assert
+                expect(true).to.be.true
+            });
+
+            // Act
+            gameResultsManager.findGameResult(games[0]);
+        });
     });
 });

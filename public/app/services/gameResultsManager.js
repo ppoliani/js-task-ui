@@ -8,7 +8,8 @@
         // region Consts
 
         var WIN_POINTS = 3,
-            DRAW_POINTS = 1;
+            DRAW_POINTS = 1,
+            NUM_OF_GAMES_PER_GAMEWEEK = 10;
 
         // endregion
 
@@ -19,7 +20,9 @@
             _overallTeamPosition = [],
             _homeTeamPositions = [],
             _awayTeamPositions = [],
-            _games = [];
+            _games = [],
+            _gameUpdateHooks = [],
+            _tmpNumOfGames = 0;
 
         // endregion
 
@@ -33,6 +36,20 @@
             _overallTeamPosition = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
             _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalHomePoints');
             _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalAwayPoints');
+        }
+
+        /**
+         * Invoked all the gameweek update listeners
+         * @private
+         */
+        function _triggerGameWeekUpdates(){
+            _tmpNumOfGames += 1;
+
+            if(_tmpNumOfGames === NUM_OF_GAMES_PER_GAMEWEEK){
+                _tmpNumOfGames = 0;
+
+                _gameUpdateHooks.forEach(function(clb){ clb() });                
+            }
         }
 
         /**
@@ -141,6 +158,18 @@
 
         // endregion
 
+        // region Events
+
+         /**
+         * Regiosters a callback funciton that will be invoked when a gameweek update is performed
+         * @param game
+         */
+        function onGameWeekUpdate(clb){
+            _gameUpdateHooks.push(clb);
+        }
+
+        // endregion
+
         // region Public API
 
         return {
@@ -152,7 +181,8 @@
             getAllGames: getAllGames,
             getOverallTeamPositions: getOverallTeamPositions,
             getHomeTeamPositions: getHomeTeamPositions,
-            getAwayTeamPositions: getAwayTeamPositions
+            getAwayTeamPositions: getAwayTeamPositions,
+            onGameWeekUpdate: onGameWeekUpdate
         };
 
         // endregion
