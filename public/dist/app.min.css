@@ -5,12 +5,13 @@ ol,ul{list-style:none}
 blockquote,q{quotes:none}
 blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
-h1,h2,h3,h4,h5,h6{font-weight:300}
+*{font-family:Lato,sans-serif}
+h1,h2,h3,h4,h5,h6{font-weight:300;font-family:Lato,sans-serif}
 .grid__table{margin:0;padding:0;width:100%;list-style:none;display:table;border-collapse:separate}
 .grid__row{width:100%;display:table}
 .grid__data{position:relative;padding:.75rem;text-align:center}
 .grid__cell,.grid__header{display:table-row;vertical-align:middle}
-.grid__header{background-color:#F60;color:#FFF;font-family:'Francois One',sans-serif}
+.grid__header{background-color:#F60;color:#FFF;font-family:Lato,sans-serif}
 .grid__cell .icon{display:inline-block;vertical-align:top}
 @media only screen and (min-width:40.063em){.grid__row{display:table-row}
 .grid__cell,.grid__header{display:table-cell;padding:.2rem;vertical-align:middle}
@@ -20,10 +21,11 @@ h1,h2,h3,h4,h5,h6{font-weight:300}
 .stats-table__header-row .grid__header{font-weight:700}
 .stats-table__stats-row:nth-child(odd){background-color:#eee}
 .stats-table__stats-row:nth-child(even){background-color:#fff}
-.stats-table__team-form{display:inline-block;margin:0 .2rem;padding:.5rem;border-radius:.5rem;width:1rem;font-size:.75rem}
+.stats-table__team-form{display:inline-block;margin:0 .2rem;padding:.5rem;border-radius:.5rem;width:1rem;font-size:.75rem;color:#FFF;font-weight:700}
 .stats-table__team-form--win{background-color:#F4A62E}
 .stats-table__team-form--draw{background-color:#15BB16}
 .stats-table__team-form--loss{background-color:#D61719}
-.tab-container .tab-header{display:inline-block;padding:1rem;color:#FFF;background-color:#3C3C3C;margin-right:.5rem;cursor:pointer;font-family:'Francois One',sans-serif}
+.page__header{background-color:#3C3C3C;color:#FFF;text-align:center;margin-bottom:2rem;padding:1rem;text-transform:uppercase;font-size:2rem}
+.tab-container .tab-header{display:inline-block;padding:1rem;color:#FFF;background-color:#3C3C3C;margin-right:.5rem;cursor:pointer;font-family:Lato,sans-serif}
 .tab-container .tab-body{margin-top:.5rem;padding:1rem;border:1px solid #dbdbdb}
 .tab-container .selected{background-color:#F60}
