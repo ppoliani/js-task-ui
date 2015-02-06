@@ -18,8 +18,8 @@ module.exports = function(config) {
             'third-party/angular/angular.js',
             'third-party/angular-route/angular-route.min.js',
             'third-party/angular-mocks/angular-mocks.js',
+            'third-party/ngReact/ngReact.min.js',
             'app/tests/all.specs.js'
-            //'app/components/**/*.html'
         ],
 
 

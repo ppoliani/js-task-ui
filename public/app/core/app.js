@@ -21,6 +21,7 @@
     var
         _mainModule = angular.module('app.core', [
             'ngRoute',
+            'react',
             'app.services',
             'app.controllers',
             'app.models',
