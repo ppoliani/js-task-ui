@@ -37,6 +37,24 @@ describe('The gameResultManager', function(){
             expect(gameResultsManager.getAllGames()[0]).to.equal(game);
         });
 
+        it('Should update the number of mathes each team has played so far', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 1,
+                awayGoals: 2
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).numOfHomeGames).to.equal(1);
+            expect(gameResultsManager.getTeamById(2).numOfAwayGames).to.equal(1);
+        });
+
         it('It should correctly set the home/away goals', function(){
             // Arrange
             var game = {

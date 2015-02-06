@@ -16,7 +16,6 @@
         // region Inner Fields
 
         var _teams,
-            _numOfMatchesPlayed = 0,
             _overallTeamPosition = [],
             _homeTeamPositions = [],
             _awayTeamPositions = [],
@@ -60,10 +59,6 @@
             _teams = teams;
         }
 
-        function getNumOfGamesPlayed(){
-            return _numOfMatchesPlayed;
-        }
-
         /**
          * Returns all the teams
          * @returns {*}
@@ -103,6 +98,15 @@
         }
 
         /**
+         * Returns the current game week
+         * @param teamId
+         * @returns {*}
+         */
+        function getCurrentGameWeek(){
+            return _gameWeek;
+        }
+
+        /**
          * Calculates the result of the given match and update the properties of the teams in question
          * @param game
          */
@@ -110,9 +114,10 @@
             var homeTeam = _teams[game.homeTeamId],
                 awayTeam = _teams[game.awayTeamId];
 
-            _numOfMatchesPlayed += 1;
-
             _games.push(game);
+
+            homeTeam.numOfHomeGames += 1;
+            awayTeam.numOfAwayGames += 1;
 
             homeTeam.goalsScoredHome += game.homeGoals;
             homeTeam.goalsConcededHome += game.awayGoals;
@@ -146,6 +151,7 @@
             }
 
             _updateTeamPosition();
+            _triggerGameWeekUpdates();
         }
 
         /**
@@ -162,7 +168,7 @@
 
          /**
          * Regiosters a callback funciton that will be invoked when a gameweek update is performed
-         * @param game
+         * @param clb
          */
         function onGameWeekUpdate(clb){
             _gameUpdateHooks.push(clb);
@@ -174,7 +180,6 @@
 
         return {
             storeTeams: storeTeams,
-            getNumOfGamesPlayed: getNumOfGamesPlayed,
             getAllTeams: getAllTeams,
             getTeamById: getTeamById,
             findGameResult: findGameResult,
@@ -182,7 +187,8 @@
             getOverallTeamPositions: getOverallTeamPositions,
             getHomeTeamPositions: getHomeTeamPositions,
             getAwayTeamPositions: getAwayTeamPositions,
-            onGameWeekUpdate: onGameWeekUpdate
+            onGameWeekUpdate: onGameWeekUpdate,
+            getCurrentGameWeek: getCurrentGameWeek
         };
 
         // endregion

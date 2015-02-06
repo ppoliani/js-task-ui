@@ -9,6 +9,7 @@
         // region Setup
 
         gamesLoader.init(on_msg.bind(this), on_error);
+        gameResultsManager.onGameWeekUpdate(on_gameWeekUpdate.bind(this));
 
         // endregion
 
@@ -22,6 +23,7 @@
         this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
         this.zonesManager = standingZonesManager;
         this.numOfGamesPlayed = 0;
+        this.currentGameWeek = 0;
 
         // endregion
 
@@ -33,10 +35,6 @@
          */
         function on_msg(game){
             gameResultsManager.findGameResult(new Game(game));
-            $timeout(function(){
-                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
-                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed()
-            }.bind(this));
         }
 
         /**
@@ -47,6 +45,16 @@
             console.error(error);
         }
 
+        /**
+         * Invoked when the webSocket raises an error
+         */
+        function on_gameWeekUpdate(){
+            $timeout(function(){
+                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
+                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed();
+                this.currentGameWeek = gameResultsManager.getCurrentGameWeek();
+            }.bind(this));
+        }
         // endregion
     }
 

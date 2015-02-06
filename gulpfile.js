@@ -24,6 +24,15 @@ gulp.task('dev:watch', function(){
 gulp.task('test', function (done) {
     karma.start({
         configFile: __dirname + '/gulp/karma.conf.js',
+        singleRun: true
+    }, function(){
+        done();
+    });
+});
+
+gulp.task('test:debug', function (done) {
+    karma.start({
+        configFile: __dirname + '/gulp/karma.conf.js',
         singleRun: false
     }, function(){
         done();

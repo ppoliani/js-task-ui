@@ -21,6 +21,8 @@
             this.id = id;
             this.name = name;
 
+            this.numOfHomeGames  = 0;
+            this.numOfAwayGames  = 0;
             this.totalHomePoints = 0;
             this.totalAwayPoints = 0;
             this.numOfHomeWins = 0;
@@ -64,6 +66,12 @@
         // region Properties
 
         Object.defineProperties(Team.prototype, {
+            numOfTotalGames: {
+                get: function get_totalPoints(){
+                    return this.numOfHomeGames + this.numOfAwayGames;
+                }
+            },
+
             totalPoints: {
                 get: function get_totalPoints(){
                     return this.totalHomePoints + this.totalAwayPoints;

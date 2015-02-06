@@ -213,7 +213,7 @@
 	 * Loads all the controllers of the app
 	 */
 	module.exports = [
-	    __webpack_require__(10)
+	    __webpack_require__(12)
 	];
 
 /***/ },
@@ -224,12 +224,12 @@
 	 * Loads all the services of the app
 	 */
 	module.exports = [
-	    __webpack_require__(11),
-	    __webpack_require__(12),
 	    __webpack_require__(13),
 	    __webpack_require__(14),
 	    __webpack_require__(15),
-	    __webpack_require__(16)
+	    __webpack_require__(16),
+	    __webpack_require__(17),
+	    __webpack_require__(18)
 	];
 
 /***/ },
@@ -240,8 +240,8 @@
 	 * Loads all the models of the app
 	 */
 	module.exports = [
-	    __webpack_require__(17),
-	    __webpack_require__(18)
+	    __webpack_require__(10),
+	    __webpack_require__(11)
 	];
 
 /***/ },
@@ -299,558 +299,6 @@
 
 /***/ },
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Home ctrl
-	 */
-	(function(){
-	    'use strict';
-	
-	    function HomeCtrl($timeout, Game, gamesLoader, gameResultsManager, standingZonesManager){
-	
-	        // region Setup
-	
-	        gamesLoader.init(on_msg.bind(this), on_error);
-	
-	        // endregion
-	
-	        // region Inner Fields
-	
-	
-	        // endregion
-	
-	        // region Viewmodel
-	
-	        this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
-	        this.zonesManager = standingZonesManager;
-	        this.numOfGamesPlayed = 0;
-	
-	        // endregion
-	
-	        // region Events
-	
-	        /**
-	         * Invoked when the webSocker has got a new message
-	         * @param game
-	         */
-	        function on_msg(game){
-	            gameResultsManager.findGameResult(new Game(game));
-	            $timeout(function(){
-	                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
-	                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed()
-	            }.bind(this));
-	        }
-	
-	        /**
-	         * Invoked when the webSocket raises an error
-	         * @param error
-	         */
-	        function on_error(error){
-	            console.error(error);
-	        }
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'homeCtrl',
-	        ctrl: [
-	            '$timeout',
-	            'Game',
-	            'gamesLoaderService',
-	            'gameResultsManager',
-	            'standingZonesManager',
-	            HomeCtrl
-	        ]
-	    };
-	    
-	    // endregion
-	
-	})();
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * A Web Socket Client
-	 */
-	(function(){
-	    'use strict';
-	
-	    function WebSocketClient(){
-	
-	        // region Inner Methods
-	
-	        function init(url, onmsg, onerr){
-	            if(!url) throw new Error('WebSocket url is required');
-	
-	            this._url = url;
-	            this._connection = new window.WebSocket('ws://' + url);
-	
-	            // events
-	            this._connection.onopen = onopen.bind(this);
-	            this._connection.onerror = onerror.bind(this, onerr);
-	            this._connection.onmessage = onmessage.bind(this, onmsg);
-	        }
-	
-	        function onopen(){
-	            console.info("Socket opened :" + this._url);
-	        }
-	
-	        function onerror(clb, error){
-	            clb(error);
-	        }
-	
-	        function onmessage(clb, msg){
-	            try {
-	                var json = JSON.parse(msg.data);
-	            } catch (e) {
-	                console.log('This doesn\'t look like a valid JSON: ', msg.data);
-	                return;
-	            }
-	
-	            clb(json);
-	        }
-	
-	        // endregion
-	
-	        // region Ctor
-	
-	        function WebSocketClient(){
-	            this._url = undefined;
-	            this._connection = null;
-	
-	        }
-	
-	        WebSocketClient.prototype = (function(){
-	            return {
-	                constructor: WebSocketClient,
-	                init: init
-	            };
-	        })();
-	
-	        // endregion
-	
-	        // region Public API
-	
-	        return WebSocketClient;
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'WebSocketClient',
-	        type: 'factory',
-	        service: [WebSocketClient]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Loads the game result through a websocket
-	 */
-	(function(){
-	    'use strict';
-	    
-	    function gamesLoaderService(WebSocketClient){
-	        // region Consts
-	
-	        var WS_URL = '127.0.0.1:8080/games';
-	
-	        // endregion
-	
-	        // region Inner Methods
-	
-	        /**
-	         * Initializes the web socket client
-	         * @param on_msg
-	         * @param on_error
-	         */
-	        function init(on_msg, on_error){
-	            var webSocketClient = new WebSocketClient();
-	
-	            webSocketClient.init(WS_URL, on_msg, on_error);
-	        }
-	
-	        // endregion
-	        
-	        // region Public API
-	        
-	        return {
-	            init: init
-	        };
-	        
-	        // endregion
-	    }
-	    
-	    // region CommonJS
-	    
-	    module.exports = {
-	        name: 'gamesLoaderService',
-	        type: 'factory',
-	        service: ['WebSocketClient', gamesLoaderService]
-	    };
-	    
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Http service
-	 */
-	(function(){
-	    'use strict';
-	
-	    function dataService($q, $http){
-	
-	        // region Inner Methods
-	
-	        function get(url){
-	            return $q(function(resolve, reject){
-	                $http.get(url)
-	                    .success(resolve)
-	                    .error(reject);
-	            });
-	        }
-	
-	        // endregion
-	
-	        // region Public API
-	
-	        return {
-	            get: get
-	        };
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'dataService',
-	        type: 'factory',
-	        service: ['$q', '$http', dataService]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Game result manager
-	 */
-	(function(){
-	    'use strict';
-	
-	    function gameResultsManager(GameResultEnum, collectionUtils){
-	        // region Consts
-	
-	        var WIN_POINTS = 3,
-	            DRAW_POINTS = 1;
-	
-	        // endregion
-	
-	        // region Inner Fields
-	
-	        var _teams,
-	            _numOfMatchesPlayed = 0,
-	            _overallTeamPosition = [],
-	            _homeTeamPositions = [],
-	            _awayTeamPositions = [],
-	            _games = [];
-	
-	        // endregion
-	
-	        // region Inner Methods
-	
-	        /**
-	         * Updates the position of the teams
-	         * @private
-	         */
-	        function _updateTeamPosition(){
-	            _overallTeamPosition = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
-	            _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalHomePoints');
-	            _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalAwayPoints');
-	        }
-	
-	        /**
-	         * Store the given teams to the local collection
-	         * @param teams
-	         */
-	        function storeTeams(teams){
-	            _teams = teams;
-	        }
-	
-	        function getNumOfGamesPlayed(){
-	            return _numOfMatchesPlayed;
-	        }
-	
-	        /**
-	         * Returns all the teams
-	         * @returns {*}
-	         */
-	        function getAllTeams(){
-	            return _teams;
-	        }
-	
-	        /**
-	         * Returns an ordered array according to the position of each team in the table; overall stats table
-	         */
-	        function getOverallTeamPositions(){
-	            return _overallTeamPosition;
-	        }
-	
-	        /**
-	         * Returns an ordered array according to the position of each team in the table; home stats table
-	         */
-	        function getHomeTeamPositions(){
-	            return _homeTeamPositions;
-	        }
-	
-	        /**
-	         * Returns an ordered array according to the position of each team in the table; away stats table
-	         */
-	        function getAwayTeamPositions(){
-	            return _awayTeamPositions;
-	        }
-	
-	        /**
-	         * Returns the team with the given id
-	         * @param teamId
-	         * @returns {*}
-	         */
-	        function getTeamById(teamId){
-	            return _teams[teamId];
-	        }
-	
-	        /**
-	         * Calculates the result of the given match and update the properties of the teams in question
-	         * @param game
-	         */
-	        function findGameResult(game){
-	            var homeTeam = _teams[game.homeTeamId],
-	                awayTeam = _teams[game.awayTeamId];
-	
-	            _numOfMatchesPlayed += 1;
-	
-	            _games.push(game);
-	
-	            homeTeam.goalsScoredHome += game.homeGoals;
-	            homeTeam.goalsConcededHome += game.awayGoals;
-	
-	            awayTeam.goalsScoredAway += game.awayGoals;
-	            awayTeam.goalsConcededAway += game.homeGoals;
-	
-	            if (game.homeGoals > game.awayGoals){
-	                homeTeam.totalHomePoints += WIN_POINTS;
-	                homeTeam.numOfHomeWins += 1;
-	
-	                homeTeam.updateForm(GameResultEnum.Win);
-	                awayTeam.updateForm(GameResultEnum.Loss);
-	            }
-	            else if(game.awayGoals > game.homeGoals){
-	                awayTeam.totalAwayPoints += WIN_POINTS;
-	                awayTeam.numOfAwayWins += 1;
-	
-	                homeTeam.updateForm(GameResultEnum.Loss);
-	                awayTeam.updateForm(GameResultEnum.Win);
-	            }
-	            else {
-	                homeTeam.totalHomePoints += DRAW_POINTS;
-	                homeTeam.numOfHomeDraws += 1;
-	
-	                awayTeam.totalAwayPoints += DRAW_POINTS;
-	                awayTeam.numOfAwayDraws += 1;
-	
-	                homeTeam.updateForm(GameResultEnum.Draw);
-	                awayTeam.updateForm(GameResultEnum.Draw);
-	            }
-	
-	            _updateTeamPosition();
-	        }
-	
-	        /**
-	         * Returns all the games that have been played
-	         * @returns {Array}
-	         */
-	        function getAllGames(){
-	            return _games;
-	        }
-	
-	        // endregion
-	
-	        // region Public API
-	
-	        return {
-	            storeTeams: storeTeams,
-	            getNumOfGamesPlayed: getNumOfGamesPlayed,
-	            getAllTeams: getAllTeams,
-	            getTeamById: getTeamById,
-	            findGameResult: findGameResult,
-	            getAllGames: getAllGames,
-	            getOverallTeamPositions: getOverallTeamPositions,
-	            getHomeTeamPositions: getHomeTeamPositions,
-	            getAwayTeamPositions: getAwayTeamPositions
-	        };
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'gameResultsManager',
-	        type: 'factory',
-	        service: [
-	            'GameResultEnum',
-	            'collectionUtils',
-	            gameResultsManager
-	        ]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Determines the various zone in the league standings table
-	 */
-	(function(){
-	    'use strict';
-	
-	    function standingZonesManager(){
-	
-	        // region Consts
-	
-	        var RELAGATION_ZONE_POSITIONS = [18, 19, 20],
-	            CHAMPIONS_LEAGUE_POSITIONS = [1, 2, 3],
-	            CHAMPIONS_LEAGUE_QUALIFICATION_POSITIONS = [4],
-	            EUROPE_LEAGUE_POSITIONS = [5];
-	
-	        // endregion
-	
-	        // region Inner Methods
-	
-	        function isInRelegationZone(position){
-	            return RELAGATION_ZONE_POSITIONS.indexOf(position) !== -1;
-	        }
-	
-	        function isInChampionsLeagueZone(position){
-	            return CHAMPIONS_LEAGUE_POSITIONS.indexOf(position) !== -1;
-	        }
-	
-	        function isInChampionsLeagueQualificationZone(position){
-	            return CHAMPIONS_LEAGUE_QUALIFICATION_POSITIONS.indexOf(position) !== -1;
-	        }
-	
-	        function isInEuropeLeagueZone(position){
-	            return EUROPE_LEAGUE_POSITIONS.indexOf(position) !== -1;
-	        }
-	
-	        // endregion
-	
-	        // region Public API
-	
-	        return {
-	            isInRelegationZone: isInRelegationZone,
-	            isInChampionsLeagueZone: isInChampionsLeagueZone,
-	            isInChampionsLeagueQualificationZone: isInChampionsLeagueQualificationZone,
-	            isInEuropeLeagueZone: isInEuropeLeagueZone
-	        };
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'standingZonesManager',
-	        type: 'factory',
-	        service: [standingZonesManager]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Collection utility functions
-	 */
-	(function(){
-	    'use strict';
-	
-	    function collectionUtils(){
-	
-	        // region Inner Methods
-	
-	        function objToArray(obj){
-	            return Object.keys(obj).map(function(key){ return obj[key]; })
-	        }
-	
-	        function sortArrayByProperty(arr, prop){
-	            arr.sort(function(l, r){ // DESC
-	                return r[prop] - l[prop]
-	            });
-	
-	
-	            return arr;
-	        }
-	
-	        // endregion
-	
-	        // region Public API
-	
-	        return {
-	            objToArray: objToArray,
-	            sortArrayByProperty: sortArrayByProperty
-	        };
-	
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'collectionUtils',
-	        type: 'factory',
-	        service: [collectionUtils]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -973,7 +421,7 @@
 	})();
 
 /***/ },
-/* 18 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1022,6 +470,595 @@
 	    module.exports = {
 	        name: 'Game',
 	        ctor: [Game]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Home ctrl
+	 */
+	(function(){
+	    'use strict';
+	
+	    function HomeCtrl($timeout, Game, gamesLoader, gameResultsManager, standingZonesManager){
+	
+	        // region Setup
+	
+	        gamesLoader.init(on_msg.bind(this), on_error);
+	        gameResultsManager.onGameWeekUpdate(on_gameWeekUpdate.bind(this));
+	
+	        // endregion
+	
+	        // region Inner Fields
+	
+	
+	        // endregion
+	
+	        // region Viewmodel
+	
+	        this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
+	        this.zonesManager = standingZonesManager;
+	        this.numOfGamesPlayed = 0;
+	
+	        // endregion
+	
+	        // region Events
+	
+	        /**
+	         * Invoked when the webSocker has got a new message
+	         * @param game
+	         */
+	        function on_msg(game){
+	            gameResultsManager.findGameResult(new Game(game));
+	        }
+	
+	        /**
+	         * Invoked when the webSocket raises an error
+	         * @param error
+	         */
+	        function on_error(error){
+	            console.error(error);
+	        }
+	
+	        /**
+	         * Invoked when the webSocket raises an error
+	         */
+	        function on_gameWeekUpdate(){
+	            $timeout(function(){
+	                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
+	                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed()
+	            }.bind(this));
+	        }
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'homeCtrl',
+	        ctrl: [
+	            '$timeout',
+	            'Game',
+	            'gamesLoaderService',
+	            'gameResultsManager',
+	            'standingZonesManager',
+	            HomeCtrl
+	        ]
+	    };
+	    
+	    // endregion
+	
+	})();
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * A Web Socket Client
+	 */
+	(function(){
+	    'use strict';
+	
+	    function WebSocketClient(){
+	
+	        // region Inner Methods
+	
+	        function init(url, onmsg, onerr){
+	            if(!url) throw new Error('WebSocket url is required');
+	
+	            this._url = url;
+	            this._connection = new window.WebSocket('ws://' + url);
+	
+	            // events
+	            this._connection.onopen = onopen.bind(this);
+	            this._connection.onerror = onerror.bind(this, onerr);
+	            this._connection.onmessage = onmessage.bind(this, onmsg);
+	        }
+	
+	        function onopen(){
+	            console.info("Socket opened :" + this._url);
+	        }
+	
+	        function onerror(clb, error){
+	            clb(error);
+	        }
+	
+	        function onmessage(clb, msg){
+	            try {
+	                var json = JSON.parse(msg.data);
+	            } catch (e) {
+	                console.log('This doesn\'t look like a valid JSON: ', msg.data);
+	                return;
+	            }
+	
+	            clb(json);
+	        }
+	
+	        // endregion
+	
+	        // region Ctor
+	
+	        function WebSocketClient(){
+	            this._url = undefined;
+	            this._connection = null;
+	
+	        }
+	
+	        WebSocketClient.prototype = (function(){
+	            return {
+	                constructor: WebSocketClient,
+	                init: init
+	            };
+	        })();
+	
+	        // endregion
+	
+	        // region Public API
+	
+	        return WebSocketClient;
+	
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'WebSocketClient',
+	        type: 'factory',
+	        service: [WebSocketClient]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Loads the game result through a websocket
+	 */
+	(function(){
+	    'use strict';
+	    
+	    function gamesLoaderService(WebSocketClient){
+	        // region Consts
+	
+	        var WS_URL = '127.0.0.1:8080/games';
+	
+	        // endregion
+	
+	        // region Inner Methods
+	
+	        /**
+	         * Initializes the web socket client
+	         * @param on_msg
+	         * @param on_error
+	         */
+	        function init(on_msg, on_error){
+	            var webSocketClient = new WebSocketClient();
+	
+	            webSocketClient.init(WS_URL, on_msg, on_error);
+	        }
+	
+	        // endregion
+	        
+	        // region Public API
+	        
+	        return {
+	            init: init
+	        };
+	        
+	        // endregion
+	    }
+	    
+	    // region CommonJS
+	    
+	    module.exports = {
+	        name: 'gamesLoaderService',
+	        type: 'factory',
+	        service: ['WebSocketClient', gamesLoaderService]
+	    };
+	    
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Http service
+	 */
+	(function(){
+	    'use strict';
+	
+	    function dataService($q, $http){
+	
+	        // region Inner Methods
+	
+	        function get(url){
+	            return $q(function(resolve, reject){
+	                $http.get(url)
+	                    .success(resolve)
+	                    .error(reject);
+	            });
+	        }
+	
+	        // endregion
+	
+	        // region Public API
+	
+	        return {
+	            get: get
+	        };
+	
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'dataService',
+	        type: 'factory',
+	        service: ['$q', '$http', dataService]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Game result manager
+	 */
+	(function(){
+	    'use strict';
+	
+	    function gameResultsManager(GameResultEnum, collectionUtils){
+	        // region Consts
+	
+	        var WIN_POINTS = 3,
+	            DRAW_POINTS = 1,
+	            NUM_OF_GAMES_PER_GAMEWEEK = 10;
+	
+	        // endregion
+	
+	        // region Inner Fields
+	
+	        var _teams,
+	            _numOfMatchesPlayed = 0,
+	            _overallTeamPosition = [],
+	            _homeTeamPositions = [],
+	            _awayTeamPositions = [],
+	            _games = [],
+	            _gameUpdateHooks = [],
+	            _tmpNumOfGames = 0;
+	
+	        // endregion
+	
+	        // region Inner Methods
+	
+	        /**
+	         * Updates the position of the teams
+	         * @private
+	         */
+	        function _updateTeamPosition(){
+	            _overallTeamPosition = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
+	            _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalHomePoints');
+	            _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalAwayPoints');
+	        }
+	
+	        /**
+	         * Invoked all the gameweek update listeners
+	         * @private
+	         */
+	        function _triggerGameWeekUpdates(){
+	            _tmpNumOfGames += 1;
+	
+	            if(_tmpNumOfGames === NUM_OF_GAMES_PER_GAMEWEEK){
+	                _tmpNumOfGames = 0;
+	
+	                _gameUpdateHooks.forEach(function(clb){ clb() });                
+	            }
+	        }
+	
+	        /**
+	         * Store the given teams to the local collection
+	         * @param teams
+	         */
+	        function storeTeams(teams){
+	            _teams = teams;
+	        }
+	
+	        function getNumOfGamesPlayed(){
+	            return _numOfMatchesPlayed;
+	        }
+	
+	        /**
+	         * Returns all the teams
+	         * @returns {*}
+	         */
+	        function getAllTeams(){
+	            return _teams;
+	        }
+	
+	        /**
+	         * Returns an ordered array according to the position of each team in the table; overall stats table
+	         */
+	        function getOverallTeamPositions(){
+	            return _overallTeamPosition;
+	        }
+	
+	        /**
+	         * Returns an ordered array according to the position of each team in the table; home stats table
+	         */
+	        function getHomeTeamPositions(){
+	            return _homeTeamPositions;
+	        }
+	
+	        /**
+	         * Returns an ordered array according to the position of each team in the table; away stats table
+	         */
+	        function getAwayTeamPositions(){
+	            return _awayTeamPositions;
+	        }
+	
+	        /**
+	         * Returns the team with the given id
+	         * @param teamId
+	         * @returns {*}
+	         */
+	        function getTeamById(teamId){
+	            return _teams[teamId];
+	        }
+	
+	        /**
+	         * Calculates the result of the given match and update the properties of the teams in question
+	         * @param game
+	         */
+	        function findGameResult(game){
+	            var homeTeam = _teams[game.homeTeamId],
+	                awayTeam = _teams[game.awayTeamId];
+	
+	            _numOfMatchesPlayed += 1;
+	
+	            _games.push(game);
+	
+	            homeTeam.goalsScoredHome += game.homeGoals;
+	            homeTeam.goalsConcededHome += game.awayGoals;
+	
+	            awayTeam.goalsScoredAway += game.awayGoals;
+	            awayTeam.goalsConcededAway += game.homeGoals;
+	
+	            if (game.homeGoals > game.awayGoals){
+	                homeTeam.totalHomePoints += WIN_POINTS;
+	                homeTeam.numOfHomeWins += 1;
+	
+	                homeTeam.updateForm(GameResultEnum.Win);
+	                awayTeam.updateForm(GameResultEnum.Loss);
+	            }
+	            else if(game.awayGoals > game.homeGoals){
+	                awayTeam.totalAwayPoints += WIN_POINTS;
+	                awayTeam.numOfAwayWins += 1;
+	
+	                homeTeam.updateForm(GameResultEnum.Loss);
+	                awayTeam.updateForm(GameResultEnum.Win);
+	            }
+	            else {
+	                homeTeam.totalHomePoints += DRAW_POINTS;
+	                homeTeam.numOfHomeDraws += 1;
+	
+	                awayTeam.totalAwayPoints += DRAW_POINTS;
+	                awayTeam.numOfAwayDraws += 1;
+	
+	                homeTeam.updateForm(GameResultEnum.Draw);
+	                awayTeam.updateForm(GameResultEnum.Draw);
+	            }
+	
+	            _updateTeamPosition();
+	            _triggerGameWeekUpdates();
+	        }
+	
+	        /**
+	         * Returns all the games that have been played
+	         * @returns {Array}
+	         */
+	        function getAllGames(){
+	            return _games;
+	        }
+	
+	        // endregion
+	
+	        // region Events
+	
+	         /**
+	         * Regiosters a callback funciton that will be invoked when a gameweek update is performed
+	         * @param clb
+	         */
+	        function onGameWeekUpdate(clb){
+	            _gameUpdateHooks.push(clb);
+	        }
+	
+	        // endregion
+	
+	        // region Public API
+	
+	        return {
+	            storeTeams: storeTeams,
+	            getNumOfGamesPlayed: getNumOfGamesPlayed,
+	            getAllTeams: getAllTeams,
+	            getTeamById: getTeamById,
+	            findGameResult: findGameResult,
+	            getAllGames: getAllGames,
+	            getOverallTeamPositions: getOverallTeamPositions,
+	            getHomeTeamPositions: getHomeTeamPositions,
+	            getAwayTeamPositions: getAwayTeamPositions,
+	            onGameWeekUpdate: onGameWeekUpdate
+	        };
+	
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'gameResultsManager',
+	        type: 'factory',
+	        service: [
+	            'GameResultEnum',
+	            'collectionUtils',
+	            gameResultsManager
+	        ]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Determines the various zone in the league standings table
+	 */
+	(function(){
+	    'use strict';
+	
+	    function standingZonesManager(){
+	
+	        // region Consts
+	
+	        var RELAGATION_ZONE_POSITIONS = [18, 19, 20],
+	            CHAMPIONS_LEAGUE_POSITIONS = [1, 2, 3],
+	            CHAMPIONS_LEAGUE_QUALIFICATION_POSITIONS = [4],
+	            EUROPE_LEAGUE_POSITIONS = [5];
+	
+	        // endregion
+	
+	        // region Inner Methods
+	
+	        function isInRelegationZone(position){
+	            return RELAGATION_ZONE_POSITIONS.indexOf(position) !== -1;
+	        }
+	
+	        function isInChampionsLeagueZone(position){
+	            return CHAMPIONS_LEAGUE_POSITIONS.indexOf(position) !== -1;
+	        }
+	
+	        function isInChampionsLeagueQualificationZone(position){
+	            return CHAMPIONS_LEAGUE_QUALIFICATION_POSITIONS.indexOf(position) !== -1;
+	        }
+	
+	        function isInEuropeLeagueZone(position){
+	            return EUROPE_LEAGUE_POSITIONS.indexOf(position) !== -1;
+	        }
+	
+	        // endregion
+	
+	        // region Public API
+	
+	        return {
+	            isInRelegationZone: isInRelegationZone,
+	            isInChampionsLeagueZone: isInChampionsLeagueZone,
+	            isInChampionsLeagueQualificationZone: isInChampionsLeagueQualificationZone,
+	            isInEuropeLeagueZone: isInEuropeLeagueZone
+	        };
+	
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'standingZonesManager',
+	        type: 'factory',
+	        service: [standingZonesManager]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Collection utility functions
+	 */
+	(function(){
+	    'use strict';
+	
+	    function collectionUtils(){
+	
+	        // region Inner Methods
+	
+	        function objToArray(obj){
+	            return Object.keys(obj).map(function(key){ return obj[key]; })
+	        }
+	
+	        function sortArrayByProperty(arr, prop){
+	            arr.sort(function(l, r){ // DESC
+	                return r[prop] - l[prop]
+	            });
+	
+	
+	            return arr;
+	        }
+	
+	        // endregion
+	
+	        // region Public API
+	
+	        return {
+	            objToArray: objToArray,
+	            sortArrayByProperty: sortArrayByProperty
+	        };
+	
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'collectionUtils',
+	        type: 'factory',
+	        service: [collectionUtils]
 	    };
 	
 	    // endregion
