@@ -9,8 +9,8 @@
                 </div>
             </div>
 
-            <div class="grid__header">
-                <div class="grid__data grid__data--sortable grid__header--table grid__header--team-data">
+            <div class="grid__header  grid__header--team-data">
+                <div class="grid__data grid__data--sortable grid__header--table">
                     Team
                     <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
                 </div>
@@ -67,9 +67,30 @@
 
         <!-- Stats data -->
         <li class="grid__row" ng-repeat="team in vm.teams track by team.id | orderBy: position ">
-            <div class="grid__cell ">{{ ::$index + 1 }}</div>
-            <div class="grid__cell ">{{ ::team.name }}</div>
-            <div class="grid__cell ">{{ ::team.total }}</div>
+            <div class="grid__cell">
+                <div class="grid__data">{{ $index + 1 }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.name }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.totalPoints }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.numOfWins }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.numOfDraws }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.numOfLosses }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.totalGoalsScored }}:{{ team.totalGoalsConceded }}</div>
+            </div>
+            <div class="grid__cell ">
+                <div class="grid__data">{{ team.totalPoints }}</div>
+            </div>
         </li>
     </ul>
 </section>
