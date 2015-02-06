@@ -213,7 +213,7 @@
 	 * Loads all the controllers of the app
 	 */
 	module.exports = [
-	    __webpack_require__(10)
+	    __webpack_require__(12)
 	];
 
 /***/ },
@@ -224,12 +224,12 @@
 	 * Loads all the services of the app
 	 */
 	module.exports = [
-	    __webpack_require__(11),
-	    __webpack_require__(12),
 	    __webpack_require__(13),
 	    __webpack_require__(14),
 	    __webpack_require__(15),
-	    __webpack_require__(16)
+	    __webpack_require__(16),
+	    __webpack_require__(17),
+	    __webpack_require__(18)
 	];
 
 /***/ },
@@ -240,8 +240,8 @@
 	 * Loads all the models of the app
 	 */
 	module.exports = [
-	    __webpack_require__(17),
-	    __webpack_require__(18)
+	    __webpack_require__(10),
+	    __webpack_require__(11)
 	];
 
 /***/ },
@@ -299,6 +299,198 @@
 
 /***/ },
 /* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	* Team model
+	*/
+	(function(){
+	    'use strict';
+	
+	    function Team(){
+	
+	        // region Consts
+	
+	        var NUM_OF_LAST_GAMES = 5;
+	
+	        // endregion
+	
+	        // region Ctor
+	
+	        function Team(id, name){
+	            if(!id)throw new Error('Please give an id for this team');
+	            if(!name)throw new Error('Please give a name for this team');
+	
+	            this.id = id;
+	            this.name = name;
+	
+	            this.numOfHomeGames  = 0;
+	            this.numOfAwayGames  = 0;
+	            this.homePoints = 0;
+	            this.awayPoints = 0;
+	            this.numOfHomeWins = 0;
+	            this.numOfAwayWins = 0;
+	            this.numOfHomeDraws = 0;
+	            this.numOfAwayDraws = 0;
+	            this.numOfHomeLosses = 0;
+	            this.numOfAwayLosses = 0;
+	            this.goalsScoredHome = 0;
+	            this.goalsScoredAway = 0;
+	            this.goalsConcededHome = 0;
+	            this.goalsConcededAway = 0;
+	
+	            this.form = [];
+	        }
+	
+	        Team.prototype = (function(){
+	
+	            function updateForm(gameResult){
+	                if(!gameResult) throw new Error('game result is required to set the teams form');
+	
+	                this.form.unshift(gameResult);
+	            }
+	
+	            function getFormForLastNGames(n){
+	                return this.form.slice(0, n);
+	            }
+	
+	            // region Public Api
+	
+	            var publicAPI = {
+	                constructor: Team,
+	
+	                updateForm: updateForm,
+	                getFormForLastNGames: getFormForLastNGames
+	            };
+	
+	            // endregion
+	
+	            return publicAPI;
+	
+	        })();
+	
+	        // endregion
+	
+	        // region Properties
+	
+	        Object.defineProperties(Team.prototype, {
+	            numOfTotalGames: {
+	                get: function get_totalPoints(){
+	                    return this.numOfHomeGames + this.numOfAwayGames;
+	                }
+	            },
+	
+	            totalPoints: {
+	                get: function get_totalPoints(){
+	                    return this.homePoints + this.awayPoints;
+	                }
+	            },
+	
+	            numOfTotalWins: {
+	                get: function get_numOfTotalWins(){
+	                    return this.numOfHomeWins + this.numOfAwayWins;
+	                }
+	            },
+	
+	            numOfTotalDraws: {
+	                get: function get_numOfTotalDraws(){
+	                    return this.numOfHomeDraws + this.numOfAwayDraws;
+	                }
+	            },
+	
+	            numOfTotalLosses: {
+	                get: function get_numOfTotalLosses(){
+	                    return this.numOfHomeLosses + this.numOfAwayLosses;
+	                }
+	            },
+	
+	            goalsScoredTotal: {
+	                get: function get_totalGoalsScored(){
+	                    return this.goalsScoredHome + this.goalsScoredAway;
+	                }
+	            },
+	
+	            goalsConcededTotal: {
+	                get: function get_totalGoalsConceded(){
+	                    return this.goalsConcededHome + this.goalsConcededAway;
+	                }
+	            }
+	        });
+	
+	        // endregion
+	
+	        return Team;
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'Team',
+	        ctor: [Team]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	* Game model
+	*/
+	(function(){
+	    'use strict';
+	
+	    function Game(){
+	
+	        // region Inner Methods
+	
+	        // endregion
+	
+	        // region Ctor
+	
+	        function Game(values){
+	            this.date = values.date;
+	            this.homeTeamId = values.homeTeamId;
+	            this.awayTeamId = values.awayTeamId;
+	            this.homeGoals = Number(values.homeGoals);
+	            this.awayGoals = Number(values.awayGoals);
+	        }
+	
+	        Game.prototype = (function(){
+	
+	            // region Public Api
+	
+	            var publicAPI = {
+	                constructor: Game
+	            };
+	
+	            // endregion
+	
+	            return publicAPI;
+	
+	        })();
+	
+	        // endregion
+	
+	        return Game;
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'Game',
+	        ctor: [Game]
+	    };
+	
+	    // endregion
+	
+	})();
+
+/***/ },
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -388,7 +580,7 @@
 
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -471,7 +663,7 @@
 	})();
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -524,7 +716,7 @@
 	})();
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -569,7 +761,7 @@
 	})();
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -777,7 +969,7 @@
 	})();
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -842,7 +1034,7 @@
 	})();
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -896,7 +1088,7 @@
 	                    }
 	
 	                    else { 
-	                        return r[name] - l[name];
+	                        return l.name.localeCompare(r.name);
 	                    }
 	                }
 	            });
@@ -923,198 +1115,6 @@
 	        name: 'collectionUtils',
 	        type: 'factory',
 	        service: [collectionUtils]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	* Team model
-	*/
-	(function(){
-	    'use strict';
-	
-	    function Team(){
-	
-	        // region Consts
-	
-	        var NUM_OF_LAST_GAMES = 5;
-	
-	        // endregion
-	
-	        // region Ctor
-	
-	        function Team(id, name){
-	            if(!id)throw new Error('Please give an id for this team');
-	            if(!name)throw new Error('Please give a name for this team');
-	
-	            this.id = id;
-	            this.name = name;
-	
-	            this.numOfHomeGames  = 0;
-	            this.numOfAwayGames  = 0;
-	            this.homePoints = 0;
-	            this.awayPoints = 0;
-	            this.numOfHomeWins = 0;
-	            this.numOfAwayWins = 0;
-	            this.numOfHomeDraws = 0;
-	            this.numOfAwayDraws = 0;
-	            this.numOfHomeLosses = 0;
-	            this.numOfAwayLosses = 0;
-	            this.goalsScoredHome = 0;
-	            this.goalsScoredAway = 0;
-	            this.goalsConcededHome = 0;
-	            this.goalsConcededAway = 0;
-	
-	            this.form = [];
-	        }
-	
-	        Team.prototype = (function(){
-	
-	            function updateForm(gameResult){
-	                if(!gameResult) throw new Error('game result is required to set the teams form');
-	
-	                this.form.unshift(gameResult);
-	            }
-	
-	            function getFormForLastNGames(n){
-	                return this.form.slice(0, n);
-	            }
-	
-	            // region Public Api
-	
-	            var publicAPI = {
-	                constructor: Team,
-	
-	                updateForm: updateForm,
-	                getFormForLastNGames: getFormForLastNGames
-	            };
-	
-	            // endregion
-	
-	            return publicAPI;
-	
-	        })();
-	
-	        // endregion
-	
-	        // region Properties
-	
-	        Object.defineProperties(Team.prototype, {
-	            numOfTotalGames: {
-	                get: function get_totalPoints(){
-	                    return this.numOfHomeGames + this.numOfAwayGames;
-	                }
-	            },
-	
-	            totalPoints: {
-	                get: function get_totalPoints(){
-	                    return this.homePoints + this.awayPoints;
-	                }
-	            },
-	
-	            numOfTotalWins: {
-	                get: function get_numOfTotalWins(){
-	                    return this.numOfHomeWins + this.numOfAwayWins;
-	                }
-	            },
-	
-	            numOfTotalDraws: {
-	                get: function get_numOfTotalDraws(){
-	                    return this.numOfHomeDraws + this.numOfAwayDraws;
-	                }
-	            },
-	
-	            numOfTotalLosses: {
-	                get: function get_numOfTotalLosses(){
-	                    return this.numOfHomeLosses + this.numOfAwayLosses;
-	                }
-	            },
-	
-	            goalsScoredTotal: {
-	                get: function get_totalGoalsScored(){
-	                    return this.goalsScoredHome + this.goalsScoredAway;
-	                }
-	            },
-	
-	            goalsConcededTotal: {
-	                get: function get_totalGoalsConceded(){
-	                    return this.goalsConcededHome + this.goalsConcededAway;
-	                }
-	            }
-	        });
-	
-	        // endregion
-	
-	        return Team;
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'Team',
-	        ctor: [Team]
-	    };
-	
-	    // endregion
-	
-	})();
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	* Game model
-	*/
-	(function(){
-	    'use strict';
-	
-	    function Game(){
-	
-	        // region Inner Methods
-	
-	        // endregion
-	
-	        // region Ctor
-	
-	        function Game(values){
-	            this.date = values.date;
-	            this.homeTeamId = values.homeTeamId;
-	            this.awayTeamId = values.awayTeamId;
-	            this.homeGoals = Number(values.homeGoals);
-	            this.awayGoals = Number(values.awayGoals);
-	        }
-	
-	        Game.prototype = (function(){
-	
-	            // region Public Api
-	
-	            var publicAPI = {
-	                constructor: Game
-	            };
-	
-	            // endregion
-	
-	            return publicAPI;
-	
-	        })();
-	
-	        // endregion
-	
-	        return Game;
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'Game',
-	        ctor: [Game]
 	    };
 	
 	    // endregion
