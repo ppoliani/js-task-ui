@@ -67,7 +67,9 @@
 
         <!-- Stats data -->
         <li class="grid__row" ng-repeat="team in vm.teams track by team.id | orderBy: position ">
-            <div class="grid__cell ">{{ ::$index }}</div>
+            <div class="grid__cell ">{{ ::$index + 1 }}</div>
+            <div class="grid__cell ">{{ ::team.name }}</div>
+            <div class="grid__cell ">{{ ::team.total }}</div>
         </li>
     </ul>
 </section>

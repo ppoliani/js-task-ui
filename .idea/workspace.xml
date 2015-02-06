@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa69137c-e3c0-4129-9c49-8e4bd2052bfd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/services/collectionUtils.js" afterPath="$PROJECT_DIR$/public/app/services/collectionUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" afterPath="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/services/gameResultsManager.js" afterPath="$PROJECT_DIR$/public/app/services/gameResultsManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss" afterPath="$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.js.map" afterPath="$PROJECT_DIR$/public/dist/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/app.min.css" afterPath="$PROJECT_DIR$/public/dist/app.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/models/game.js" afterPath="$PROJECT_DIR$/public/app/models/game.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/home/homeCtrl.js" afterPath="$PROJECT_DIR$/public/app/home/homeCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/home/index.html" afterPath="$PROJECT_DIR$/public/app/home/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/config/routes.js" afterPath="$PROJECT_DIR$/public/app/config/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/components/statsTable/statsTable.html" afterPath="$PROJECT_DIR$/public/app/components/statsTable/statsTable.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/models/team.js" afterPath="$PROJECT_DIR$/public/app/models/team.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="js-task-ui-1.0.0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,101 +51,30 @@
         <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameResultManager.specs.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js">
+      <file leaf-file-name="homeCtrl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/app/home/homeCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73666096" vertical-offset="1867" max-vertical-offset="2448">
-              <caret line="261" column="65" selection-start-line="261" selection-start-column="65" selection-end-line="261" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.40963855" vertical-offset="391" max-vertical-offset="1207">
+              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
               <folding>
-                <element signature="e#1870#3077#0" expanded="false" />
-                <element signature="e#3168#3659#0" expanded="false" />
-                <element signature="e#3750#4241#0" expanded="false" />
-                <element signature="e#4331#4822#0" expanded="false" />
-                <element signature="e#4916#5403#0" expanded="false" />
-                <element signature="e#5497#5984#0" expanded="false" />
-                <element signature="e#6088#6577#0" expanded="false" />
+                <element signature="e#0#20#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameResultsManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/home/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="2040">
-              <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#30#0" expanded="false" />
-                <element signature="e#137#153#0" expanded="false" />
-                <element signature="e#1005#1101#0" expanded="false" />
-                <element signature="e#1136#1175#0" expanded="false" />
-                <element signature="e#1185#1257#0" expanded="false" />
-                <element signature="e#1288#1326#0" expanded="false" />
-                <element signature="e#2007#2117#0" expanded="false" />
-                <element signature="e#2154#2200#0" expanded="false" />
-                <element signature="e#2210#2351#0" expanded="false" />
-                <element signature="e#2806#3038#0" expanded="false" />
-                <element signature="e#3091#3323#0" expanded="false" />
-                <element signature="e#3341#3680#0" expanded="false" />
-                <element signature="e#3736#3834#0" expanded="false" />
-                <element signature="e#3865#3903#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statsTable.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.961538" vertical-offset="767" max-vertical-offset="1326">
-              <caret line="68" column="94" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
+            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="374">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collectionUtils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/services/collectionUtils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="867">
-              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="team.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/models/team.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1190">
-              <caret line="70" column="23" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#19#0" expanded="false" />
-                <element signature="e#82#98#0" expanded="false" />
-                <element signature="e#1057#1487#0" expanded="false" />
-                <element signature="e#1103#1264#0" expanded="false" />
-                <element signature="e#1328#1418#0" expanded="false" />
-                <element signature="e#1620#1774#0" expanded="false" />
-                <element signature="e#1669#1760#0" expanded="false" />
-                <element signature="e#1800#1950#0" expanded="false" />
-                <element signature="e#1849#1936#0" expanded="false" />
-                <element signature="e#1977#2129#0" expanded="false" />
-                <element signature="e#2026#2115#0" expanded="false" />
-                <element signature="e#2157#2311#0" expanded="false" />
-                <element signature="e#2206#2297#0" expanded="false" />
-                <element signature="e#2344#2498#0" expanded="false" />
-                <element signature="e#2393#2484#0" expanded="false" />
-                <element signature="e#2533#2691#0" expanded="false" />
-                <element signature="e#2582#2677#0" expanded="false" />
-                <element signature="e#2759#2777#0" expanded="false" />
-                <element signature="e#2800#2850#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -146,20 +82,21 @@
       <file leaf-file-name="_stats-table.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="136">
-              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+            <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="136">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/app/home/homeCtrl.js">
+      <file leaf-file-name="statsTable.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1156">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="306">
+              <caret line="71" column="52" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
               <folding>
-                <element signature="e#0#20#0" expanded="false" />
+                <element signature="n#li#0;n#ul#0;n#section#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#li#0;n#ul#0;n#section#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -173,7 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/.bowerrc" />
         <option value="$PROJECT_DIR$/gulp/build_tasks/css.js" />
         <option value="$PROJECT_DIR$/views/index.html" />
@@ -185,7 +121,6 @@
         <option value="$PROJECT_DIR$/public/app/home/gamesLoader.js" />
         <option value="$PROJECT_DIR$/public/app/core/constants.js" />
         <option value="$PROJECT_DIR$/public/app/services/dataService.js" />
-        <option value="$PROJECT_DIR$/public/app/models/game.js" />
         <option value="$PROJECT_DIR$/public/app/services/gameResultManager.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/gulp/build_tasks/test.js" />
@@ -201,7 +136,6 @@
         <option value="$PROJECT_DIR$/public/app/tests/webSockerClient.js" />
         <option value="$PROJECT_DIR$/public/app/tests/standingZonesManager.specs.js" />
         <option value="$PROJECT_DIR$/public/app/tests/webSockerClient.specs.js" />
-        <option value="$PROJECT_DIR$/public/app/config/routes.js" />
         <option value="$PROJECT_DIR$/public/app/services/standingZonesManager.js" />
         <option value="$PROJECT_DIR$/public/app/services/gamesLoader.js" />
         <option value="$PROJECT_DIR$/public/assets/css/app/_settings/_colors.scss" />
@@ -210,20 +144,23 @@
         <option value="$PROJECT_DIR$/public/assets/css/app/_base/_all.scss" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/public/app/components/tabs/tabContainer.js" />
-        <option value="$PROJECT_DIR$/public/app/home/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/public/app/home/index.html" />
         <option value="$PROJECT_DIR$/public/app/core/directives.js" />
         <option value="$PROJECT_DIR$/public/assets/css/app/_objects/_grid.scss" />
         <option value="$PROJECT_DIR$/public/assets/css/app/_gui/_all.scss" />
         <option value="$PROJECT_DIR$/public/assets/css/app/app.scss" />
-        <option value="$PROJECT_DIR$/public/app/components/statsTable/statsTable.js" />
-        <option value="$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss" />
-        <option value="$PROJECT_DIR$/public/app/components/statsTable/statsTable.html" />
-        <option value="$PROJECT_DIR$/public/app/models/team.js" />
         <option value="$PROJECT_DIR$/public/app/core/services.js" />
         <option value="$PROJECT_DIR$/public/app/services/collectionUtils.js" />
-        <option value="$PROJECT_DIR$/public/app/services/gameResultsManager.js" />
         <option value="$PROJECT_DIR$/public/app/tests/gameResultManager.specs.js" />
+        <option value="$PROJECT_DIR$/public/app/models/team.js" />
+        <option value="$PROJECT_DIR$/public/app/services/gameResultsManager.js" />
+        <option value="$PROJECT_DIR$/public/app/models/game.js" />
+        <option value="$PROJECT_DIR$/public/app/config/routes.js" />
+        <option value="$PROJECT_DIR$/public/app/home/index.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss" />
+        <option value="$PROJECT_DIR$/public/app/components/statsTable/statsTable.js" />
+        <option value="$PROJECT_DIR$/public/app/components/tabs/tabItem.js" />
+        <option value="$PROJECT_DIR$/public/app/components/statsTable/statsTable.html" />
+        <option value="$PROJECT_DIR$/public/app/home/homeCtrl.js" />
       </list>
     </option>
   </component>
@@ -313,8 +250,26 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tests" />
+              <option name="myItemId" value="js-task-ui-1.0.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js-task-ui-1.0.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,7 +291,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,26 +316,8 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js-task-ui-1.0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js-task-ui-1.0.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -735,24 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/models/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69017094" vertical-offset="102" max-vertical-offset="952">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13204226" vertical-offset="282" max-vertical-offset="850">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="e#557#1316#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/services/gamesLoader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46815833" vertical-offset="0" max-vertical-offset="901">
@@ -841,37 +764,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/components/tabs/tabItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="918">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/components/tabs/tabContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1292">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/core/directives.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17555939" vertical-offset="0" max-vertical-offset="581">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/home/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1156">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -891,78 +788,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27567568" vertical-offset="0" max-vertical-offset="555">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/app/_objects/_grid.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769" vertical-offset="578" max-vertical-offset="1190">
-          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/core/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26333907" vertical-offset="0" max-vertical-offset="581">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/models/team.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1190">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-            <element signature="e#82#98#0" expanded="false" />
-            <element signature="e#1057#1487#0" expanded="false" />
-            <element signature="e#1103#1264#0" expanded="false" />
-            <element signature="e#1328#1418#0" expanded="false" />
-            <element signature="e#1620#1774#0" expanded="false" />
-            <element signature="e#1669#1760#0" expanded="false" />
-            <element signature="e#1800#1950#0" expanded="false" />
-            <element signature="e#1849#1936#0" expanded="false" />
-            <element signature="e#1977#2129#0" expanded="false" />
-            <element signature="e#2026#2115#0" expanded="false" />
-            <element signature="e#2157#2311#0" expanded="false" />
-            <element signature="e#2206#2297#0" expanded="false" />
-            <element signature="e#2344#2498#0" expanded="false" />
-            <element signature="e#2393#2484#0" expanded="false" />
-            <element signature="e#2533#2691#0" expanded="false" />
-            <element signature="e#2582#2677#0" expanded="false" />
-            <element signature="e#2759#2777#0" expanded="false" />
-            <element signature="e#2800#2850#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.961538" vertical-offset="767" max-vertical-offset="1326">
-          <caret line="68" column="94" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
           <folding />
         </state>
       </provider>
@@ -975,25 +804,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
+    <entry file="file://$PROJECT_DIR$/public/app/models/team.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="2040">
-          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.23924269" vertical-offset="116" max-vertical-offset="1122">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding>
-            <element signature="e#0#30#0" expanded="false" />
-            <element signature="e#137#153#0" expanded="false" />
-            <element signature="e#1005#1101#0" expanded="false" />
-            <element signature="e#1136#1175#0" expanded="false" />
-            <element signature="e#1185#1257#0" expanded="false" />
-            <element signature="e#1288#1326#0" expanded="false" />
-            <element signature="e#2007#2117#0" expanded="false" />
-            <element signature="e#2154#2200#0" expanded="false" />
-            <element signature="e#2210#2351#0" expanded="false" />
-            <element signature="e#2806#3038#0" expanded="false" />
-            <element signature="e#3091#3323#0" expanded="false" />
-            <element signature="e#3341#3680#0" expanded="false" />
-            <element signature="e#3736#3834#0" expanded="false" />
-            <element signature="e#3865#3903#0" expanded="false" />
+            <element signature="e#0#19#0" expanded="false" />
+            <element signature="e#82#98#0" expanded="false" />
+            <element signature="e#948#1378#0" expanded="false" />
+            <element signature="e#994#1155#0" expanded="false" />
+            <element signature="e#1219#1309#0" expanded="false" />
+            <element signature="e#1511#1665#0" expanded="false" />
+            <element signature="e#1560#1651#0" expanded="false" />
+            <element signature="e#1691#1841#0" expanded="false" />
+            <element signature="e#1740#1827#0" expanded="false" />
+            <element signature="e#1868#2020#0" expanded="false" />
+            <element signature="e#1917#2006#0" expanded="false" />
+            <element signature="e#2048#2202#0" expanded="false" />
+            <element signature="e#2097#2188#0" expanded="false" />
+            <element signature="e#2235#2389#0" expanded="false" />
+            <element signature="e#2284#2375#0" expanded="false" />
+            <element signature="e#2424#2582#0" expanded="false" />
+            <element signature="e#2473#2568#0" expanded="false" />
+            <element signature="e#2650#2668#0" expanded="false" />
+            <element signature="e#2691#2741#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1010,6 +844,113 @@
             <element signature="e#4916#5403#0" expanded="false" />
             <element signature="e#5497#5984#0" expanded="false" />
             <element signature="e#6088#6577#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/models/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="952">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/config/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3309859" vertical-offset="118" max-vertical-offset="850">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="49" />
+          <folding>
+            <element signature="e#556#1315#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/services/gameResultsManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1072" max-vertical-offset="2397">
+          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#30#0" expanded="false" />
+            <element signature="e#137#153#0" expanded="false" />
+            <element signature="e#1005#1101#0" expanded="false" />
+            <element signature="e#1136#1175#0" expanded="false" />
+            <element signature="e#1185#1257#0" expanded="false" />
+            <element signature="e#1288#1326#0" expanded="false" />
+            <element signature="e#2007#2117#0" expanded="false" />
+            <element signature="e#2154#2200#0" expanded="false" />
+            <element signature="e#2210#2351#0" expanded="false" />
+            <element signature="e#3736#3834#0" expanded="false" />
+            <element signature="e#3865#3903#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/components/tabs/tabContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1292">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/components/tabs/tabItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20998278" vertical-offset="31" max-vertical-offset="918">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="306">
+          <caret line="71" column="52" selection-start-line="71" selection-start-column="52" selection-end-line="71" selection-end-column="52" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#section#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#li#0;n#ul#0;n#section#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/app/_objects/_grid.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769" vertical-offset="578" max-vertical-offset="1190">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/app/_gui/_stats-table.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="136">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="374">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/components/statsTable/statsTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="663">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/home/homeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40963855" vertical-offset="391" max-vertical-offset="1207">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>

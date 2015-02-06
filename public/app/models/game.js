@@ -16,8 +16,8 @@
             this.date = values.date;
             this.homeTeamId = values.homeTeamId;
             this.awayTeamId = values.awayTeamId;
-            this.homeGoals = values.homeGoals;
-            this.awayGoals = values.awayGoals;
+            this.homeGoals = Number(values.homeGoals);
+            this.awayGoals = Number(values.awayGoals);
         }
 
         Game.prototype = (function(){

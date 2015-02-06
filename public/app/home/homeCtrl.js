@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function HomeCtrl(Game, gamesLoader, gameResultsManager, standingZonesManager){
+    function HomeCtrl($timeout, Game, gamesLoader, gameResultsManager, standingZonesManager){
 
         // region Setup
 
@@ -19,7 +19,7 @@
 
         // region Viewmodel
 
-        this.teams = gameResultsManager.getAllTeams();
+        this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
         this.zonesManager = standingZonesManager;
 
         // endregion
@@ -32,7 +32,9 @@
          */
         function on_msg(game){
             gameResultsManager.findGameResult(new Game(game));
-            this.teams = gameResultsManager.getAllTeams();
+            $timeout(function(){
+                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
+            }.bind(this));
         }
 
         /**
@@ -51,6 +53,7 @@
     module.exports = {
         name: 'homeCtrl',
         ctrl: [
+            '$timeout',
             'Game',
             'gamesLoaderService',
             'gameResultsManager',
