@@ -13,8 +13,8 @@
         }
 
         function sortArrayByProperty(arr, prop){
-            arr.sort(function(l, r){
-                return l[prop] - r[prop]
+            arr.sort(function(l, r){ // DESC
+                return r[prop] - l[prop]
             });
 
 

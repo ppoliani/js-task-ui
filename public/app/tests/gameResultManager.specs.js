@@ -230,8 +230,36 @@ describe('The gameResultManager', function(){
             // Act
             gameResultsManager.findGameResult(game);
 
+            var overallTeamPosition = gameResultsManager.getOverallTeamPositions(),
+                homeTeamPositions = gameResultsManager.getHomeTeamPositions();
+
             // Assert
-            expect(gameResultsManager.getOverallTeamPositions()).to.equal('D');
+            expect(overallTeamPosition[0].name).to.equal('Blackburn');
+            expect(overallTeamPosition[1].name).to.equal('Wolves');
+
+            expect(homeTeamPositions[0].name).to.equal('Blackburn');
+            expect(homeTeamPositions[1].name).to.equal('Wolves');
+        });
+
+        it('It should update the away team positions', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 1,
+                awayGoals: 3
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            var awayTeamPositions = gameResultsManager.getAwayTeamPositions();
+
+            // Assert
+
+            expect(awayTeamPositions[0].name).to.equal('Wolves');
+            expect(awayTeamPositions[1].name).to.equal('Blackburn');
         });
     });
 });

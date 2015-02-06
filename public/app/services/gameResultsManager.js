@@ -29,7 +29,9 @@
          * @private
          */
         function _updateTeamPosition(){
-            collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
+            _overallTeamPosition = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
+            _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalHomePoints');
+            _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalAwayPoints');
         }
 
         /**
@@ -52,21 +54,21 @@
          * Returns an ordered array according to the position of each team in the table; overall stats table
          */
         function getOverallTeamPositions(){
-            throw 'Not Implemented';
+            return _overallTeamPosition;
         }
 
         /**
          * Returns an ordered array according to the position of each team in the table; home stats table
          */
         function getHomeTeamPositions(){
-            throw 'Not Implemented';
+            return _homeTeamPositions;
         }
 
         /**
          * Returns an ordered array according to the position of each team in the table; away stats table
          */
         function getAwayTeamPositions(){
-            throw 'Not Implemented';
+            return _awayTeamPositions;
         }
 
         /**
