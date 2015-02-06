@@ -58,15 +58,9 @@
         /**
          * Invoked when the webSocket raises an error
          */
-        function on_gameWeekUpdate(){
-            console.info('Game week update');
-
+        function on_gameWeekUpdate(){       
             // !! we can update once when the game week has finished
-            // $timeout(function(){
-            //     this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
-            //     this.homeTeamPositions = gameResultsManager.getHomeTeamPositions();
-            //     this.awayTeamPositions = gameResultsManager.getAwayTeamPositions();
-            // }.bind(this));
+            console.info('Game week update');
         }
         // endregion
     }
