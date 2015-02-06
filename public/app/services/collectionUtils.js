@@ -20,8 +20,8 @@
         function sortTeams(arr, statType){
             var lPoints = 0,
                 rPoints = 0,
-                lGoalsScored = 0,
-                rGoalsScored = 0;
+                lGoalDiff = 0,
+                rGoalDiff = 0;
 
             arr.sort(function(l, r){ // DESC
                 lPoints = l[(statType.toLowerCase()) + 'Points'];
@@ -37,19 +37,19 @@
 
                 if(rPoints === lPoints){ 
                     // goal diff
-                    lGoalsScored = l['goalsScored' + statType];
-                    rGoalsScored = r['goalsScored' + statType];
+                    lGoalDiff = l['goalsScored' + statType] - l['goalsConceded' + statType];
+                    rGoalDiff = r['goalsScored' + statType] - r['goalsConceded' + statType];
 
-                    if(rGoalsScored > lGoalsScored){
+                    if(rGoalDiff > lGoalDiff){
                         return 1;
                     }
 
-                    if(rGoalsScored < lGoalsScored){
+                    if(rGoalDiff < lGoalDiff){
                         return -1;
                     }
 
-                    else {
-                        return r[name] - l[name];
+                    else { 
+                        return l.name.localeCompare(r.name);
                     }
                 }
             });

@@ -361,15 +361,9 @@
 	        /**
 	         * Invoked when the webSocket raises an error
 	         */
-	        function on_gameWeekUpdate(){
-	            console.info('Game week update');
-	
+	        function on_gameWeekUpdate(){       
 	            // !! we can update once when the game week has finished
-	            // $timeout(function(){
-	            //     this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
-	            //     this.homeTeamPositions = gameResultsManager.getHomeTeamPositions();
-	            //     this.awayTeamPositions = gameResultsManager.getAwayTeamPositions();
-	            // }.bind(this));
+	            console.info('Game week update');
 	        }
 	        // endregion
 	    }
@@ -873,8 +867,8 @@
 	        function sortTeams(arr, statType){
 	            var lPoints = 0,
 	                rPoints = 0,
-	                lGoalsScored = 0,
-	                rGoalsScored = 0;
+	                lGoalDiff = 0,
+	                rGoalDiff = 0;
 	
 	            arr.sort(function(l, r){ // DESC
 	                lPoints = l[(statType.toLowerCase()) + 'Points'];
@@ -890,18 +884,18 @@
 	
 	                if(rPoints === lPoints){ 
 	                    // goal diff
-	                    lGoalsScored = l['goalsScored' + statType];
-	                    rGoalsScored = r['goalsScored' + statType];
+	                    lGoalDiff = l['goalsScored' + statType] - l['goalsConceded' + statType];
+	                    rGoalDiff = r['goalsScored' + statType] - r['goalsConceded' + statType];
 	
-	                    if(rGoalsScored > lGoalsScored){
+	                    if(rGoalDiff > lGoalDiff){
 	                        return 1;
 	                    }
 	
-	                    if(rGoalsScored < lGoalsScored){
+	                    if(rGoalDiff < lGoalDiff){
 	                        return -1;
 	                    }
 	
-	                    else {
+	                    else { 
 	                        return r[name] - l[name];
 	                    }
 	                }
