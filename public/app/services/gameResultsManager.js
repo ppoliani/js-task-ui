@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function gameResultsManager(GameResultEnum){
+    function gameResultsManager(GameResultEnum, collectionUtils){
         // region Consts
 
         var WIN_POINTS = 3,
@@ -15,11 +15,22 @@
         // region Inner Fields
 
         var _teams,
+            _overallTeamPosition = [],
+            _homeTeamPositions = [],
+            _awayTeamPositions = [],
             _games = [];
 
         // endregion
 
         // region Inner Methods
+
+        /**
+         * Updates the position of the teams
+         * @private
+         */
+        function _updateTeamPosition(){
+            collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
+        }
 
         /**
          * Store the given teams to the local collection
@@ -35,6 +46,27 @@
          */
         function getAllTeams(){
             return _teams;
+        }
+
+        /**
+         * Returns an ordered array according to the position of each team in the table; overall stats table
+         */
+        function getOverallTeamPositions(){
+            throw 'Not Implemented';
+        }
+
+        /**
+         * Returns an ordered array according to the position of each team in the table; home stats table
+         */
+        function getHomeTeamPositions(){
+            throw 'Not Implemented';
+        }
+
+        /**
+         * Returns an ordered array according to the position of each team in the table; away stats table
+         */
+        function getAwayTeamPositions(){
+            throw 'Not Implemented';
         }
 
         /**
@@ -86,6 +118,8 @@
                 homeTeam.updateForm(GameResultEnum.Draw);
                 awayTeam.updateForm(GameResultEnum.Draw);
             }
+
+            _updateTeamPosition();
         }
 
         /**
@@ -105,7 +139,10 @@
             getAllTeams: getAllTeams,
             getTeamById: getTeamById,
             findGameResult: findGameResult,
-            getAllGames: getAllGames
+            getAllGames: getAllGames,
+            getOverallTeamPositions: getOverallTeamPositions,
+            getHomeTeamPositions: getHomeTeamPositions,
+            getAwayTeamPositions: getAwayTeamPositions
         };
 
         // endregion
@@ -116,7 +153,11 @@
     module.exports = {
         name: 'gameResultsManager',
         type: 'factory',
-        service: ['GameResultEnum', gameResultsManager]
+        service: [
+            'GameResultEnum',
+            'collectionUtils',
+            gameResultsManager
+        ]
     };
 
     // endregion

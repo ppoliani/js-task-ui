@@ -40,11 +40,6 @@ $base--spacing: 0.2rem;
   }
 }
 
-.grid__table-caption {
-  display: table-caption;
-  caption-side: bottom;
-}
-
 @media #{$medium} {
   .grid__row {
     display: table-row;;

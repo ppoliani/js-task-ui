@@ -6,5 +6,6 @@ module.exports = [
     require('../services/gamesLoader'),
     require('../services/dataService'),
     require('../services/gameResultsManager'),
-    require('../services/standingZonesManager')
+    require('../services/standingZonesManager'),
+    require('../services/collectionUtils')
 ];

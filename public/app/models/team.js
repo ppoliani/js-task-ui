@@ -21,6 +21,10 @@
             this.id = id;
             this.name = name;
 
+            this.overallPosition = 0;
+            this.homePosition = 0;
+            this.awayPosition = 0;
+
             this.totalHomePoints = 0;
             this.totalAwayPoints = 0;
             this.numOfHomeWins = 0;

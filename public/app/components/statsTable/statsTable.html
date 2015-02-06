@@ -10,7 +10,7 @@
             </div>
 
             <div class="grid__header">
-                <div class="grid__data grid__data--sortable">
+                <div class="grid__data grid__data--sortable grid__header--table grid__header--team-data">
                     Team
                     <a ng-click="sort('')" class="grid__sort {{isSortBy('') ? (isSortAsc() ? 'grid__sort--asc' : 'grid__sort--desc') : '' }}"></a>
                 </div>
@@ -65,8 +65,9 @@
             </div>
         </li>
 
-        <li class="grid__row" ng-repeat="team in vm.teams track by team.id">
-
+        <!-- Stats data -->
+        <li class="grid__row" ng-repeat="team in vm.teams track by team.id | orderBy: position ">
+            <div class="grid__cell ">{{ ::$index }}</div>
         </li>
     </ul>
 </section>

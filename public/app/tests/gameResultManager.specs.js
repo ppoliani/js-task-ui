@@ -216,5 +216,22 @@ describe('The gameResultManager', function(){
             expect(gameResultsManager.getTeamById(1).form[0].value).to.equal('D');
             expect(gameResultsManager.getTeamById(2).form[0].value).to.equal('D');
         });
+
+        it('It should update the team positions', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 5,
+                awayGoals: 3
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getOverallTeamPositions()).to.equal('D');
+        });
     });
 });
