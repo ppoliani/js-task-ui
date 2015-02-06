@@ -47,12 +47,17 @@
                 this.form.unshift(gameResult);
             }
 
+            function getFormForLastNGames(n){
+                return this.form.slice(0, n);
+            }
+
             // region Public Api
 
             var publicAPI = {
                 constructor: Team,
 
-                updateForm: updateForm
+                updateForm: updateForm,
+                getFormForLastNGames: getFormForLastNGames
             };
 
             // endregion

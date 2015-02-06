@@ -91,6 +91,11 @@
             <div class="grid__cell ">
                 <div class="grid__data">{{ team.totalPoints }}</div>
             </div>
+            <div class="grid__cell ">
+                <div class="grid__data">
+                <span class="stats-table__form" ng-repeat="form in team.getFormForLastNGames(5) track by $index">{{ form.value }}</span>
+                </div>
+            </div>
         </li>
     </ul>
 </section>
