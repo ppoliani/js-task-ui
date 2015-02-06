@@ -1,7 +1,8 @@
 var gulp    = require('gulp'),
     glob    = require('glob'),
     config  = require('./gulp/config'),
-    karma   = require('karma').server;
+    karma   = require('karma').server,
+    nodemon = require('gulp-nodemon');
 
 var BUILD_TASKS_PATH = './gulp/build_tasks/';
 
@@ -29,6 +30,17 @@ gulp.task('test', function (done) {
     });
 });
 
+gulp.task('server', function () {
+  nodemon({ script: 'server.js', ext: 'html js' })
+    .on('restart', function () {
+      console.log('restarted!')
+    })
+});
+
 gulp.task('watch', function(){
     gulp.watch(config.appDir + '/**/*.js', ['dev']);
+});
+
+gulp.task('start', function(){
+    gulp.start('dev:watch', 'test', 'server');
 });
