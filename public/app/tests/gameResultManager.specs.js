@@ -123,8 +123,8 @@ describe('The gameResultManager', function(){
             gameResultsManager.findGameResult(game);
 
             // Assert
-            expect(gameResultsManager.getTeamById(1).totalHomePoints).to.equal(0);
-            expect(gameResultsManager.getTeamById(2).totalAwayPoints).to.equal(3);
+            expect(gameResultsManager.getTeamById(1).homePoints).to.equal(0);
+            expect(gameResultsManager.getTeamById(2).awayPoints).to.equal(3);
         });
 
         it('It should set 3 points to the home team if it has won the game', function(){
@@ -141,8 +141,8 @@ describe('The gameResultManager', function(){
             gameResultsManager.findGameResult(game);
 
             // Assert
-            expect(gameResultsManager.getTeamById(1).totalHomePoints).to.equal(3);
-            expect(gameResultsManager.getTeamById(2).totalAwayPoints).to.equal(0);
+            expect(gameResultsManager.getTeamById(1).homePoints).to.equal(3);
+            expect(gameResultsManager.getTeamById(2).awayPoints).to.equal(0);
         });
 
         it('It should set 1 point to the each team if the result was draw', function(){
@@ -159,8 +159,8 @@ describe('The gameResultManager', function(){
             gameResultsManager.findGameResult(game);
 
             // Assert
-            expect(gameResultsManager.getTeamById(1).totalHomePoints).to.equal(1);
-            expect(gameResultsManager.getTeamById(2).totalAwayPoints).to.equal(1);
+            expect(gameResultsManager.getTeamById(1).homePoints).to.equal(1);
+            expect(gameResultsManager.getTeamById(2).awayPoints).to.equal(1);
         });
 
         it('It should increment the num of home wins if the home team has won', function(){

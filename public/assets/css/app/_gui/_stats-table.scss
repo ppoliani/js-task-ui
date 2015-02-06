@@ -1,3 +1,33 @@
 .grid__header--team-data {
-  width: 20rem;
+  width: 35rem;
+}
+
+.stats-table__header-row {
+	.grid__header{
+		font-weight: bold;
+	}
+}
+
+.stats-table__stats-row:nth-child(odd)		{ background-color:#eee; }
+.stats-table__stats-row:nth-child(even)		{ background-color:#fff; }
+
+.stats-table__team-form {
+  	display: inline-block;
+	margin: 0 .2rem;
+  	padding: .5rem;
+  	border-radius: 0.5rem;
+  	width: 1rem;
+  	font-size: 0.75rem;
+}
+
+.stats-table__team-form--win {
+	background-color: #F4A62E;
+}
+
+.stats-table__team-form--draw {
+	background-color: #15BB16;
+}
+
+.stats-table__team-form--loss {
+	background-color: #D61719;
 }

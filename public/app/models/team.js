@@ -23,8 +23,8 @@
 
             this.numOfHomeGames  = 0;
             this.numOfAwayGames  = 0;
-            this.totalHomePoints = 0;
-            this.totalAwayPoints = 0;
+            this.homePoints = 0;
+            this.awayPoints = 0;
             this.numOfHomeWins = 0;
             this.numOfAwayWins = 0;
             this.numOfHomeDraws = 0;
@@ -79,36 +79,36 @@
 
             totalPoints: {
                 get: function get_totalPoints(){
-                    return this.totalHomePoints + this.totalAwayPoints;
+                    return this.homePoints + this.awayPoints;
                 }
             },
 
-            numOfWins: {
-                get: function get_totalPoints(){
+            numOfTotalWins: {
+                get: function get_numOfTotalWins(){
                     return this.numOfHomeWins + this.numOfAwayWins;
                 }
             },
 
-            numOfDraws: {
-                get: function get_totalPoints(){
+            numOfTotalDraws: {
+                get: function get_numOfTotalDraws(){
                     return this.numOfHomeDraws + this.numOfAwayDraws;
                 }
             },
 
-            numOfLosses: {
-                get: function get_totalPoints(){
+            numOfTotalLosses: {
+                get: function get_numOfTotalLosses(){
                     return this.numOfHomeLosses + this.numOfAwayLosses;
                 }
             },
 
-            totalGoalsScored: {
-                get: function get_totalPoints(){
+            goalsScoredTotal: {
+                get: function get_totalGoalsScored(){
                     return this.goalsScoredHome + this.goalsScoredAway;
                 }
             },
 
-            totalGoalsConceded: {
-                get: function get_totalPoints(){
+            goalsConcededTotal: {
+                get: function get_totalGoalsConceded(){
                     return this.goalsConcededHome + this.goalsConcededAway;
                 }
             }

@@ -213,7 +213,7 @@
 	 * Loads all the controllers of the app
 	 */
 	module.exports = [
-	    __webpack_require__(10)
+	    __webpack_require__(12)
 	];
 
 /***/ },
@@ -240,8 +240,8 @@
 	 * Loads all the models of the app
 	 */
 	module.exports = [
-	    __webpack_require__(11),
-	    __webpack_require__(12)
+	    __webpack_require__(10),
+	    __webpack_require__(11)
 	];
 
 /***/ },
@@ -302,86 +302,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * Home ctrl
-	 */
-	(function(){
-	    'use strict';
-	
-	    function HomeCtrl($timeout, Game, gamesLoader, gameResultsManager, standingZonesManager){
-	
-	        // region Setup
-	
-	        gamesLoader.init(on_msg.bind(this), on_error);
-	        gameResultsManager.onGameWeekUpdate(on_gameWeekUpdate.bind(this));
-	
-	        // endregion
-	
-	        // region Inner Fields
-	
-	
-	        // endregion
-	
-	        // region Viewmodel
-	
-	        this.overallTeamPositions = gameResultsManager.getAllTeams();
-	        this.zonesManager = standingZonesManager;
-	        this.currentGameWeek = 0;
-	
-	        // endregion
-	
-	        // region Events
-	
-	        /**
-	         * Invoked when the webSocker has got a new message
-	         * @param game
-	         */
-	        function on_msg(game){
-	            gameResultsManager.findGameResult(new Game(game));
-	        }
-	
-	        /**
-	         * Invoked when the webSocket raises an error
-	         * @param error
-	         */
-	        function on_error(error){
-	            console.error(error);
-	        }
-	
-	        /**
-	         * Invoked when the webSocket raises an error
-	         */
-	        function on_gameWeekUpdate(){
-	            $timeout(function(){
-	                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
-	            }.bind(this));
-	        }
-	        // endregion
-	    }
-	
-	    // region CommonJS
-	
-	    module.exports = {
-	        name: 'homeCtrl',
-	        ctrl: [
-	            '$timeout',
-	            'Game',
-	            'gamesLoaderService',
-	            'gameResultsManager',
-	            'standingZonesManager',
-	            HomeCtrl
-	        ]
-	    };
-	    
-	    // endregion
-	
-	})();
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
 	* Team model
 	*/
 	(function(){
@@ -406,8 +326,8 @@
 	
 	            this.numOfHomeGames  = 0;
 	            this.numOfAwayGames  = 0;
-	            this.totalHomePoints = 0;
-	            this.totalAwayPoints = 0;
+	            this.homePoints = 0;
+	            this.awayPoints = 0;
 	            this.numOfHomeWins = 0;
 	            this.numOfAwayWins = 0;
 	            this.numOfHomeDraws = 0;
@@ -462,36 +382,36 @@
 	
 	            totalPoints: {
 	                get: function get_totalPoints(){
-	                    return this.totalHomePoints + this.totalAwayPoints;
+	                    return this.homePoints + this.awayPoints;
 	                }
 	            },
 	
-	            numOfWins: {
-	                get: function get_totalPoints(){
+	            numOfTotalWins: {
+	                get: function get_numOfTotalWins(){
 	                    return this.numOfHomeWins + this.numOfAwayWins;
 	                }
 	            },
 	
-	            numOfDraws: {
-	                get: function get_totalPoints(){
+	            numOfTotalDraws: {
+	                get: function get_numOfTotalDraws(){
 	                    return this.numOfHomeDraws + this.numOfAwayDraws;
 	                }
 	            },
 	
-	            numOfLosses: {
-	                get: function get_totalPoints(){
+	            numOfTotalLosses: {
+	                get: function get_numOfTotalLosses(){
 	                    return this.numOfHomeLosses + this.numOfAwayLosses;
 	                }
 	            },
 	
-	            totalGoalsScored: {
-	                get: function get_totalPoints(){
+	            goalsScoredTotal: {
+	                get: function get_totalGoalsScored(){
 	                    return this.goalsScoredHome + this.goalsScoredAway;
 	                }
 	            },
 	
-	            totalGoalsConceded: {
-	                get: function get_totalPoints(){
+	            goalsConcededTotal: {
+	                get: function get_totalGoalsConceded(){
 	                    return this.goalsConcededHome + this.goalsConcededAway;
 	                }
 	            }
@@ -514,7 +434,7 @@
 	})();
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -568,6 +488,91 @@
 	    // endregion
 	
 	})();
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Home ctrl
+	 */
+	(function(){
+	    'use strict';
+	
+	    function HomeCtrl($timeout, Game, gamesLoader, gameResultsManager, standingZonesManager){
+	
+	        // region Setup
+	
+	        gamesLoader.init(on_msg.bind(this), on_error);
+	        gameResultsManager.onGameWeekUpdate(on_gameWeekUpdate.bind(this));
+	
+	        // endregion
+	
+	        // region Inner Fields
+	
+	
+	        // endregion
+	
+	        // region Viewmodel
+	
+	        this.overallTeamPositions = gameResultsManager.getAllTeams();
+	        this.homeTeamPositions = gameResultsManager.getAllTeams();
+	        this.awayTeamPositions = gameResultsManager.getAllTeams();
+	
+	        this.zonesManager = standingZonesManager;
+	        this.currentGameWeek = 0;
+	
+	        // endregion
+	
+	        // region Events
+	
+	        /**
+	         * Invoked when the webSocker has got a new message
+	         * @param game
+	         */
+	        function on_msg(game){
+	            gameResultsManager.findGameResult(new Game(game));
+	        }
+	
+	        /**
+	         * Invoked when the webSocket raises an error
+	         * @param error
+	         */
+	        function on_error(error){
+	            console.error(error);
+	        }
+	
+	        /**
+	         * Invoked when the webSocket raises an error
+	         */
+	        function on_gameWeekUpdate(){
+	            $timeout(function(){
+	                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
+	                this.homeTeamPositions = gameResultsManager.getHomeTeamPositions();
+	                this.awayTeamPositions = gameResultsManager.getAwayTeamPositions();
+	            }.bind(this));
+	        }
+	        // endregion
+	    }
+	
+	    // region CommonJS
+	
+	    module.exports = {
+	        name: 'homeCtrl',
+	        ctrl: [
+	            '$timeout',
+	            'Game',
+	            'gamesLoaderService',
+	            'gameResultsManager',
+	            'standingZonesManager',
+	            HomeCtrl
+	        ]
+	    };
+	    
+	    // endregion
+	
+	})();
+
 
 /***/ },
 /* 13 */
@@ -873,7 +878,7 @@
 	            awayTeam.goalsConcededAway += game.homeGoals;
 	
 	            if (game.homeGoals > game.awayGoals){
-	                homeTeam.totalHomePoints += WIN_POINTS;
+	                homeTeam.homePoints += WIN_POINTS;
 	                homeTeam.numOfHomeWins += 1;
 	                awayTeam.numOfAwayLosses += 1;
 	
@@ -881,7 +886,7 @@
 	                awayTeam.updateForm(GameResultEnum.Loss);
 	            }
 	            else if(game.awayGoals > game.homeGoals){
-	                awayTeam.totalAwayPoints += WIN_POINTS;
+	                awayTeam.awayPoints += WIN_POINTS;
 	                awayTeam.numOfAwayWins += 1;
 	                homeTeam.numOfHomeLosses += 1;
 	
@@ -889,10 +894,10 @@
 	                awayTeam.updateForm(GameResultEnum.Win);
 	            }
 	            else {
-	                homeTeam.totalHomePoints += DRAW_POINTS;
+	                homeTeam.homePoints += DRAW_POINTS;
 	                homeTeam.numOfHomeDraws += 1;
 	
-	                awayTeam.totalAwayPoints += DRAW_POINTS;
+	                awayTeam.awayPoints += DRAW_POINTS;
 	                awayTeam.numOfAwayDraws += 1;
 	
 	                homeTeam.updateForm(GameResultEnum.Draw);
@@ -1221,13 +1226,41 @@
 	            // region Viewmodel
 	
 	            this.getNumOfGames = function getNumOfGames(team){
-	                switch(this.type){
-	                    case 'overall':
-	                        return team.numOfTotalGames;
-	                    case 'home':
-	                        return team.numOfHomeGames;
-	                    case 'away':
-	                        return team.numOfAwayGames;
+	                return team['numOf' + this.type + 'Games'];
+	            }
+	
+	            this.getNumOfWins = function getNumOfWins(team){
+	                return team['numOf' + this.type + 'Wins'];
+	            }
+	
+	            this.getNumOfDraws = function getNumOfDraws(team){
+	                return team['numOf' + this.type + 'Draws'];
+	            }
+	
+	            this.getNumOfLosses = function getNumOfLosses(team){
+	                return team['numOf' + this.type + 'Losses'];
+	            }
+	
+	            this.getNumOfGoalsScored= function getNumOfGoalsScored(team){
+	                return team['goalsScored' + this.type];
+	            }
+	
+	            this.getNumOfGoalsConceded = function getNumOfGoalsConceded(team){
+	                return team['goalsConceded' + this.type];
+	            }
+	
+	            this.getPoints = function getPoints(team){
+	                return team[(this.type.toLowerCase()) + 'Points'];
+	            }
+	
+	            this.getTeamFormClassName = function getTeamFormClassName(form){
+	                switch(form.value){
+	                    case 'W':
+	                        return 'stats-table__team-form--win';
+	                    case 'D':
+	                        return 'stats-table__team-form--draw';
+	                    case 'L':
+	                        return 'stats-table__team-form--loss';
 	                }
 	            }
 	

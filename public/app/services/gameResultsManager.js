@@ -117,7 +117,7 @@
             awayTeam.goalsConcededAway += game.homeGoals;
 
             if (game.homeGoals > game.awayGoals){
-                homeTeam.totalHomePoints += WIN_POINTS;
+                homeTeam.homePoints += WIN_POINTS;
                 homeTeam.numOfHomeWins += 1;
                 awayTeam.numOfAwayLosses += 1;
 
@@ -125,7 +125,7 @@
                 awayTeam.updateForm(GameResultEnum.Loss);
             }
             else if(game.awayGoals > game.homeGoals){
-                awayTeam.totalAwayPoints += WIN_POINTS;
+                awayTeam.awayPoints += WIN_POINTS;
                 awayTeam.numOfAwayWins += 1;
                 homeTeam.numOfHomeLosses += 1;
 
@@ -133,10 +133,10 @@
                 awayTeam.updateForm(GameResultEnum.Win);
             }
             else {
-                homeTeam.totalHomePoints += DRAW_POINTS;
+                homeTeam.homePoints += DRAW_POINTS;
                 homeTeam.numOfHomeDraws += 1;
 
-                awayTeam.totalAwayPoints += DRAW_POINTS;
+                awayTeam.awayPoints += DRAW_POINTS;
                 awayTeam.numOfAwayDraws += 1;
 
                 homeTeam.updateForm(GameResultEnum.Draw);

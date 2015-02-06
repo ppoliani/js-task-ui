@@ -1,16 +1,14 @@
 <section class="page">
-    <h1>Premier League Table</h1>
-
     <div class="stats__tabs">
         <tab-container>
             <tab-item header="Overall">
-                <stats-table teams="homeCtrl.overallTeamPositions" type="overall"></stats-table>
+                <stats-table teams="homeCtrl.overallTeamPositions" type="Total"></stats-table>
             </tab-item>
             <tab-item header="Home">
-                Reviews
+                <stats-table teams="homeCtrl.homeTeamPositions" type="Home"></stats-table>
             </tab-item>
             <tab-item header="Away">
-                Away
+                <stats-table teams="homeCtrl.awayTeamPositions" type="Away"></stats-table>
             </tab-item>
         </tab-container>
     </div>

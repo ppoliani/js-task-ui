@@ -21,6 +21,9 @@
         // region Viewmodel
 
         this.overallTeamPositions = gameResultsManager.getAllTeams();
+        this.homeTeamPositions = gameResultsManager.getAllTeams();
+        this.awayTeamPositions = gameResultsManager.getAllTeams();
+
         this.zonesManager = standingZonesManager;
         this.currentGameWeek = 0;
 
@@ -50,6 +53,8 @@
         function on_gameWeekUpdate(){
             $timeout(function(){
                 this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
+                this.homeTeamPositions = gameResultsManager.getHomeTeamPositions();
+                this.awayTeamPositions = gameResultsManager.getAwayTeamPositions();
             }.bind(this));
         }
         // endregion
