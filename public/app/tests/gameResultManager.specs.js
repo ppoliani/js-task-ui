@@ -217,6 +217,40 @@ describe('The gameResultManager', function(){
             expect(gameResultsManager.getTeamById(2).numOfAwayDraws).to.equal(1);
         });
 
+        it('It should increment the num of home losses if the home team has lost', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 4
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(1).numOfHomeLosses).to.equal(1);
+        });
+
+        it('It should increment the num of away losses if the away team has lost', function(){
+            // Arrange
+            var game = {
+                date: "13/08/11",
+                homeTeamId: 1,
+                awayTeamId: 2,
+                homeGoals: 3,
+                awayGoals: 1
+            };
+
+            // Act
+            gameResultsManager.findGameResult(game);
+
+            // Assert
+            expect(gameResultsManager.getTeamById(2).numOfAwayLosses).to.equal(1);
+        });
+
         it('It should update the form of both teams', function(){
             // Arrange
             var game = {

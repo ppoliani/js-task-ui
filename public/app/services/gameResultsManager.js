@@ -98,15 +98,6 @@
         }
 
         /**
-         * Returns the current game week
-         * @param teamId
-         * @returns {*}
-         */
-        function getCurrentGameWeek(){
-            return _gameWeek;
-        }
-
-        /**
          * Calculates the result of the given match and update the properties of the teams in question
          * @param game
          */
@@ -128,6 +119,7 @@
             if (game.homeGoals > game.awayGoals){
                 homeTeam.totalHomePoints += WIN_POINTS;
                 homeTeam.numOfHomeWins += 1;
+                awayTeam.numOfAwayLosses += 1;
 
                 homeTeam.updateForm(GameResultEnum.Win);
                 awayTeam.updateForm(GameResultEnum.Loss);
@@ -135,6 +127,7 @@
             else if(game.awayGoals > game.homeGoals){
                 awayTeam.totalAwayPoints += WIN_POINTS;
                 awayTeam.numOfAwayWins += 1;
+                homeTeam.numOfHomeLosses += 1;
 
                 homeTeam.updateForm(GameResultEnum.Loss);
                 awayTeam.updateForm(GameResultEnum.Win);
@@ -187,8 +180,7 @@
             getOverallTeamPositions: getOverallTeamPositions,
             getHomeTeamPositions: getHomeTeamPositions,
             getAwayTeamPositions: getAwayTeamPositions,
-            onGameWeekUpdate: onGameWeekUpdate,
-            getCurrentGameWeek: getCurrentGameWeek
+            onGameWeekUpdate: onGameWeekUpdate
         };
 
         // endregion

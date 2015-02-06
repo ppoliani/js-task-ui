@@ -8,6 +8,21 @@
 
         function statsTableCtrl(){
 
+            // region Viewmodel
+
+            this.getNumOfGames = function getNumOfGames(team){
+                switch(this.type){
+                    case 'overall':
+                        return team.numOfTotalGames;
+                    case 'home':
+                        return team.numOfHomeGames;
+                    case 'away':
+                        return team.numOfAwayGames;
+                }
+            }
+
+            // endregion
+
         }
 
         return {
@@ -15,7 +30,7 @@
             templateUrl: '/public/app/components/statsTable/statsTable.html',
             scope: {
                 teams: '=',
-                numOfGamesPlayed: '='
+                type: '@'
             },
             controller: [statsTableCtrl],
             controllerAs: 'vm',

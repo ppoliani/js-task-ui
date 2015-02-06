@@ -20,9 +20,8 @@
 
         // region Viewmodel
 
-        this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
+        this.overallTeamPositions = gameResultsManager.getAllTeams();
         this.zonesManager = standingZonesManager;
-        this.numOfGamesPlayed = 0;
         this.currentGameWeek = 0;
 
         // endregion
@@ -51,8 +50,6 @@
         function on_gameWeekUpdate(){
             $timeout(function(){
                 this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
-                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed();
-                this.currentGameWeek = gameResultsManager.getCurrentGameWeek();
             }.bind(this));
         }
         // endregion
