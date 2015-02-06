@@ -33,8 +33,8 @@
          */
         function _updateTeamPosition(){
             _overallTeamPosition = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalPoints');
-            _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalHomePoints');
-            _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'totalAwayPoints');
+            _homeTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'homePoints');
+            _awayTeamPositions = collectionUtils.sortArrayByProperty(collectionUtils.objToArray(_teams),  'awayPoints');
         }
 
         /**
