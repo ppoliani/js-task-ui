@@ -1,5 +1,5 @@
 # js-task-ui
-_A client app for the live WebSocket with the results of Premier League _
+_A client app for the live WebSocket with the results of Premier League_
 
 ## Instructions
 
