@@ -21,6 +21,7 @@
 
         this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
         this.zonesManager = standingZonesManager;
+        this.numOfGamesPlayed = 0;
 
         // endregion
 
@@ -34,6 +35,7 @@
             gameResultsManager.findGameResult(new Game(game));
             $timeout(function(){
                 this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
+                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed()
             }.bind(this));
         }
 

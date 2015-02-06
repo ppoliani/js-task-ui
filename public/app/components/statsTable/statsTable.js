@@ -14,7 +14,8 @@
             restrict: 'AE',
             templateUrl: '/public/app/components/statsTable/statsTable.html',
             scope: {
-                teams: '='
+                teams: '=',
+                numOfGamesPlayed: '='
             },
             controller: [statsTableCtrl],
             controllerAs: 'vm',

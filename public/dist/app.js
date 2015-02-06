@@ -324,6 +324,7 @@
 	
 	        this.overallTeamPositions = gameResultsManager.getOverallTeamPositions();
 	        this.zonesManager = standingZonesManager;
+	        this.numOfGamesPlayed = 0;
 	
 	        // endregion
 	
@@ -337,6 +338,7 @@
 	            gameResultsManager.findGameResult(new Game(game));
 	            $timeout(function(){
 	                this.overallTeamPositions = gameResultsManager.getOverallTeamPositions()
+	                this.numOfGamesPlayed = gameResultsManager.getNumOfGamesPlayed()
 	            }.bind(this));
 	        }
 	
@@ -572,6 +574,7 @@
 	        // region Inner Fields
 	
 	        var _teams,
+	            _numOfMatchesPlayed = 0,
 	            _overallTeamPosition = [],
 	            _homeTeamPositions = [],
 	            _awayTeamPositions = [],
@@ -597,6 +600,10 @@
 	         */
 	        function storeTeams(teams){
 	            _teams = teams;
+	        }
+	
+	        function getNumOfGamesPlayed(){
+	            return _numOfMatchesPlayed;
 	        }
 	
 	        /**
@@ -644,6 +651,8 @@
 	        function findGameResult(game){
 	            var homeTeam = _teams[game.homeTeamId],
 	                awayTeam = _teams[game.awayTeamId];
+	
+	            _numOfMatchesPlayed += 1;
 	
 	            _games.push(game);
 	
@@ -695,6 +704,7 @@
 	
 	        return {
 	            storeTeams: storeTeams,
+	            getNumOfGamesPlayed: getNumOfGamesPlayed,
 	            getAllTeams: getAllTeams,
 	            getTeamById: getTeamById,
 	            findGameResult: findGameResult,
@@ -1168,7 +1178,8 @@
 	            restrict: 'AE',
 	            templateUrl: '/public/app/components/statsTable/statsTable.html',
 	            scope: {
-	                teams: '='
+	                teams: '=',
+	                numOfGamesPlayed: '='
 	            },
 	            controller: [statsTableCtrl],
 	            controllerAs: 'vm',
