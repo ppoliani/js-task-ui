@@ -11,7 +11,7 @@ var
         js: {
             vendor: [
                 libsDir + '/angular/angular.js',
-                libsDir + '/angular-route/angular-route.min.js'
+                libsDir + '/angular-route/angular-route.js'
             ],
 
             app: [
