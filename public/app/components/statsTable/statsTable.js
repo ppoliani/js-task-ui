@@ -6,37 +6,39 @@
 
     function statsTableDirective(){
 
-        function statsTableCtrl(){
+        function statsTableCtrl(zoneManager){
 
             // region Viewmodel
 
+            this.zonesManager = zoneManager;
+
             this.getNumOfGames = function getNumOfGames(team){
                 return team['numOf' + this.type + 'Games'];
-            }
+            };
 
             this.getNumOfWins = function getNumOfWins(team){
                 return team['numOf' + this.type + 'Wins'];
-            }
+            };
 
             this.getNumOfDraws = function getNumOfDraws(team){
                 return team['numOf' + this.type + 'Draws'];
-            }
+            };
 
             this.getNumOfLosses = function getNumOfLosses(team){
                 return team['numOf' + this.type + 'Losses'];
-            }
+            };
 
             this.getNumOfGoalsScored= function getNumOfGoalsScored(team){
                 return team['goalsScored' + this.type];
-            }
+            };
 
             this.getNumOfGoalsConceded = function getNumOfGoalsConceded(team){
                 return team['goalsConceded' + this.type];
-            }
+            };
 
             this.getPoints = function getPoints(team){
                 return team[(this.type.toLowerCase()) + 'Points'];
-            }
+            };
 
             this.getTeamFormClassName = function getTeamFormClassName(form){
                 switch(form.value){
@@ -47,7 +49,7 @@
                     case 'L':
                         return 'stats-table__team-form--loss';
                 }
-            }
+            };
 
             // endregion
 
@@ -60,7 +62,7 @@
                 teams: '=',
                 type: '@'
             },
-            controller: [statsTableCtrl],
+            controller: ['standingZonesManager', statsTableCtrl],
             controllerAs: 'vm',
             bindToController: true
         };

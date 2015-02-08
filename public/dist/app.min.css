@@ -21,6 +21,11 @@ h1,h2,h3,h4,h5,h6{font-weight:300;font-family:Lato,sans-serif}
 .stats-table__header-row .grid__header{font-weight:700}
 .stats-table__stats-row:nth-child(odd){background-color:#eee}
 .stats-table__stats-row:nth-child(even){background-color:#fff}
+.grid__cell--zone{color:#FFF}
+.stats-table__zone--champions-league{background-color:#004682}
+.stats-table__zone--qualification{background-color:#1EA8EC}
+.stats-table__zone--europa-league{background-color:#7F0029}
+.stats-table__zone--relegation{background-color:#D61719}
 .stats-table__team-form{display:inline-block;margin:0 .2rem;padding:.5rem;border-radius:.5rem;width:1rem;font-size:.75rem;color:#FFF;font-weight:700}
 .stats-table__team-form--win{background-color:#F4A62E}
 .stats-table__team-form--draw{background-color:#15BB16}

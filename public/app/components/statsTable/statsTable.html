@@ -68,7 +68,15 @@
         <!-- Stats data -->
         <li class="stats-table__stats-row grid__row" ng-repeat="team in vm.teams track by team.id">
             <div class="grid__cell">
-                <div class="grid__data">{{ $index + 1 }}</div>
+                <div class="grid__data"
+                     ng-class="{
+                        'grid__cell--zone stats-table__zone--champions-league': vm.zonesManager.isInChampionsLeagueZone($index + 1),
+                        'grid__cell--zone stats-table__zone--qualification': vm.zonesManager.isInChampionsLeagueQualificationZone($index + 1),
+                        'grid__cell--zone stats-table__zone--europa-league': vm.zonesManager.isInEuropeLeagueZone($index + 1),
+                        'grid__cell--zone stats-table__zone--relegation': vm.zonesManager.isInRelegationZone($index + 1)
+                        }">
+                        {{ $index + 1 }}
+                </div>
             </div>
             <div class="grid__cell ">
                 <div class="grid__data">{{ team.name }}</div>
