@@ -12,12 +12,14 @@ var
             vendor: [
                 libsDir + '/angular/angular.js',
                 libsDir + '/angular-route/angular-route.js',
-                libsDir + '/react/react.js',
-                libsDir + '/ngReact/ngReact.js'
+                libsDir + '/react/react-with-addons.js',
+                libsDir + '/ngReact/ngReact.js',
+
+                appDir + '/components/statsTable/react/statsTable.js'
             ],
 
             app: [
-                appDir + '/app.js'
+
             ]
         },
 

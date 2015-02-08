@@ -34,7 +34,7 @@ module.exports = function(gulp, config){
     gulp.task('concat:dev', function(){
         return gulp.src(config.bundles.js.vendor)
             .pipe(concat('vendor.min.js'))
-            .pipe(uglify())
+            //.pipe(uglify())
             .pipe(gulp.dest(config.distDir + '/'));
     });
 };

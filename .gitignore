@@ -1,6 +1,7 @@
 # DEPENDENCIES
 node_modules
 public/third-party
+public/app/components/statsTable/react/.module-cache
 
 # LOGS/TEMPFILES
 npm-debug.log

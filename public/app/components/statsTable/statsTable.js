@@ -6,9 +6,21 @@
 
     function statsTableDirective(){
 
-        function statsTableCtrl(){
+        function statsTableCtrl($scope){
 
             // region Viewmodel
+
+            $scope.reactProps = {
+                teams: this.teams,
+                type: this.type
+            };
+
+            $scope.$watch(function(){ return this.teams }.bind(this), function(){
+                $scope.reactProps = {
+                    teams: this.teams,
+                    type: this.type
+                };
+            }.bind(this));
 
             this.getNumOfGames = function getNumOfGames(team){
                 return team['numOf' + this.type + 'Games'];
@@ -47,7 +59,7 @@
                     case 'L':
                         return 'stats-table__team-form--loss';
                 }
-            }
+            };
 
             // endregion
 
@@ -60,7 +72,7 @@
                 teams: '=',
                 type: '@'
             },
-            controller: [statsTableCtrl],
+            controller: ['$scope', statsTableCtrl],
             controllerAs: 'vm',
             bindToController: true
         };

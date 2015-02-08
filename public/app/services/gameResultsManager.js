@@ -64,7 +64,7 @@
          * @returns {*}
          */
         function getAllTeams(){
-            return _teams;
+            return collectionUtils.objToArray(_teams);
         }
 
         /**
